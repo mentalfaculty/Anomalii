@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"Anomalii::AnomaliiPackageTests::ProductTarget" /* AnomaliiPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_39 /* Build configuration list for PBXAggregateTarget "AnomaliiPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_42 /* PBXTargetDependency */,
+			);
+			name = AnomaliiPackageTests;
+			productName = AnomaliiPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		07ACFAC41FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
+		07ACFAC51FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
+		07ACFAC71FBB847F00197723 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC61FBB847F00197723 /* Operator.swift */; };
+		07ACFAC81FBB847F00197723 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC61FBB847F00197723 /* Operator.swift */; };
+		07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* Scalar.swift */; };
+		07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* Scalar.swift */; };
+		07ACFACD1FBB84CE00197723 /* ScalarOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */; };
+		07ACFACE1FBB84CE00197723 /* ScalarOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */; };
+		07ACFAD01FBB84F300197723 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACF1FBB84F300197723 /* Terminal.swift */; };
+		07ACFAD11FBB84F300197723 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACF1FBB84F300197723 /* Terminal.swift */; };
+		07ACFAD31FBB851D00197723 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD21FBB851D00197723 /* Value.swift */; };
+		07ACFAD41FBB851D00197723 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD21FBB851D00197723 /* Value.swift */; };
+		07ACFAD61FBB854400197723 /* ExpressionMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* ExpressionMaker.swift */; };
+		07ACFAD71FBB854400197723 /* ExpressionMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* ExpressionMaker.swift */; };
+		07ACFAD91FBB856800197723 /* PopulationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* PopulationInitializer.swift */; };
+		07ACFADA1FBB856800197723 /* PopulationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* PopulationInitializer.swift */; };
+		07ACFADC1FBB859400197723 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADB1FBB859400197723 /* Mutator.swift */; };
+		07ACFADD1FBB859400197723 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADB1FBB859400197723 /* Mutator.swift */; };
+		07ACFADF1FBB85BF00197723 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADE1FBB85BF00197723 /* Random.swift */; };
+		07ACFAE01FBB85BF00197723 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADE1FBB85BF00197723 /* Random.swift */; };
+		07ACFAE21FBB85DC00197723 /* Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE11FBB85DC00197723 /* Solver.swift */; };
+		07ACFAE31FBB85DC00197723 /* Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE11FBB85DC00197723 /* Solver.swift */; };
+		07ACFAE51FBB861400197723 /* Evolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE41FBB861400197723 /* Evolver.swift */; };
+		07ACFAE61FBB861400197723 /* Evolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE41FBB861400197723 /* Evolver.swift */; };
+		OBJ_21 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_27 /* AnomaliiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AnomaliiTests.swift */; };
+		OBJ_29 /* Anomalii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Anomalii::Anomalii::Product" /* Anomalii.framework */; };
+		OBJ_36 /* Anomalii.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Anomalii.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07ACFAC11FBB829000197723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Anomalii::Anomalii";
+			remoteInfo = Anomalii;
+		};
+		07ACFAC21FBB829100197723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Anomalii::AnomaliiTests";
+			remoteInfo = AnomaliiTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07ACFAC31FBB846300197723 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		07ACFAC61FBB847F00197723 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		07ACFAC91FBB84AD00197723 /* Scalar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalar.swift; sourceTree = "<group>"; };
+		07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalarOperator.swift; sourceTree = "<group>"; };
+		07ACFACF1FBB84F300197723 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		07ACFAD21FBB851D00197723 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		07ACFAD51FBB854400197723 /* ExpressionMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionMaker.swift; sourceTree = "<group>"; };
+		07ACFAD81FBB856800197723 /* PopulationInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationInitializer.swift; sourceTree = "<group>"; };
+		07ACFADB1FBB859400197723 /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
+		07ACFADE1FBB85BF00197723 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		07ACFAE11FBB85DC00197723 /* Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solver.swift; sourceTree = "<group>"; };
+		07ACFAE41FBB861400197723 /* Evolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evolver.swift; sourceTree = "<group>"; };
+		"Anomalii::Anomalii::Product" /* Anomalii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Anomalii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Anomalii::AnomaliiTests::Product" /* AnomaliiTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnomaliiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_12 /* AnomaliiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnomaliiTests.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* Anomalii.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anomalii.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_29 /* Anomalii.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_10 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* AnomaliiTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_11 /* AnomaliiTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* AnomaliiTests.swift */,
+			);
+			name = AnomaliiTests;
+			path = Tests/AnomaliiTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"Anomalii::AnomaliiTests::Product" /* AnomaliiTests.xctest */,
+				"Anomalii::Anomalii::Product" /* Anomalii.framework */,
+			);
+			name = Products;
+			path = ..;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_10 /* Tests */,
+				OBJ_13 /* Products */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* Anomalii */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* Anomalii */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* Anomalii.swift */,
+				07ACFADE1FBB85BF00197723 /* Random.swift */,
+				07ACFAD21FBB851D00197723 /* Value.swift */,
+				07ACFAC31FBB846300197723 /* Expression.swift */,
+				07ACFAC61FBB847F00197723 /* Operator.swift */,
+				07ACFAC91FBB84AD00197723 /* Scalar.swift */,
+				07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */,
+				07ACFACF1FBB84F300197723 /* Terminal.swift */,
+				07ACFAD51FBB854400197723 /* ExpressionMaker.swift */,
+				07ACFAD81FBB856800197723 /* PopulationInitializer.swift */,
+				07ACFADB1FBB859400197723 /* Mutator.swift */,
+				07ACFAE41FBB861400197723 /* Evolver.swift */,
+				07ACFAE11FBB85DC00197723 /* Solver.swift */,
+			);
+			name = Anomalii;
+			path = Sources/Anomalii;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"Anomalii::Anomalii" /* Anomalii */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_32 /* Build configuration list for PBXNativeTarget "Anomalii" */;
+			buildPhases = (
+				OBJ_35 /* Sources */,
+				OBJ_37 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Anomalii;
+			productName = Anomalii;
+			productReference = "Anomalii::Anomalii::Product" /* Anomalii.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Anomalii::AnomaliiTests" /* AnomaliiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_23 /* Build configuration list for PBXNativeTarget "AnomaliiTests" */;
+			buildPhases = (
+				OBJ_26 /* Sources */,
+				OBJ_28 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_30 /* PBXTargetDependency */,
+			);
+			name = AnomaliiTests;
+			productName = AnomaliiTests;
+			productReference = "Anomalii::AnomaliiTests::Product" /* AnomaliiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"Anomalii::SwiftPMPackageDescription" /* AnomaliiPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "AnomaliiPackageDescription" */;
+			buildPhases = (
+				OBJ_20 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnomaliiPackageDescription;
+			productName = AnomaliiPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Anomalii" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"Anomalii::SwiftPMPackageDescription" /* AnomaliiPackageDescription */,
+				"Anomalii::AnomaliiTests" /* AnomaliiTests */,
+				"Anomalii::Anomalii" /* Anomalii */,
+				"Anomalii::AnomaliiPackageTests::ProductTarget" /* AnomaliiPackageTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				07ACFAD61FBB854400197723 /* ExpressionMaker.swift in Sources */,
+				OBJ_21 /* Package.swift in Sources */,
+				07ACFAE21FBB85DC00197723 /* Solver.swift in Sources */,
+				07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */,
+				07ACFAD31FBB851D00197723 /* Value.swift in Sources */,
+				07ACFAD91FBB856800197723 /* PopulationInitializer.swift in Sources */,
+				07ACFAC71FBB847F00197723 /* Operator.swift in Sources */,
+				07ACFAD01FBB84F300197723 /* Terminal.swift in Sources */,
+				07ACFAC41FBB846300197723 /* Expression.swift in Sources */,
+				07ACFADC1FBB859400197723 /* Mutator.swift in Sources */,
+				07ACFAE51FBB861400197723 /* Evolver.swift in Sources */,
+				07ACFACD1FBB84CE00197723 /* ScalarOperator.swift in Sources */,
+				07ACFADF1FBB85BF00197723 /* Random.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_27 /* AnomaliiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				07ACFAD71FBB854400197723 /* ExpressionMaker.swift in Sources */,
+				OBJ_36 /* Anomalii.swift in Sources */,
+				07ACFAE31FBB85DC00197723 /* Solver.swift in Sources */,
+				07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */,
+				07ACFAD41FBB851D00197723 /* Value.swift in Sources */,
+				07ACFADA1FBB856800197723 /* PopulationInitializer.swift in Sources */,
+				07ACFAC81FBB847F00197723 /* Operator.swift in Sources */,
+				07ACFAD11FBB84F300197723 /* Terminal.swift in Sources */,
+				07ACFAC51FBB846300197723 /* Expression.swift in Sources */,
+				07ACFADD1FBB859400197723 /* Mutator.swift in Sources */,
+				07ACFAE61FBB861400197723 /* Evolver.swift in Sources */,
+				07ACFACE1FBB84CE00197723 /* ScalarOperator.swift in Sources */,
+				07ACFAE01FBB85BF00197723 /* Random.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Anomalii::Anomalii" /* Anomalii */;
+			targetProxy = 07ACFAC11FBB829000197723 /* PBXContainerItemProxy */;
+		};
+		OBJ_42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Anomalii::AnomaliiTests" /* AnomaliiTests */;
+			targetProxy = 07ACFAC21FBB829100197723 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Anomalii.xcodeproj/AnomaliiTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AnomaliiTests;
+			};
+			name = Debug;
+		};
+		OBJ_25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Anomalii.xcodeproj/AnomaliiTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AnomaliiTests;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Anomalii.xcodeproj/Anomalii_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Anomalii;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Anomalii;
+			};
+			name = Debug;
+		};
+		OBJ_34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Anomalii.xcodeproj/Anomalii_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Anomalii;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Anomalii;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_17 /* Build configuration list for PBXNativeTarget "AnomaliiPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_18 /* Debug */,
+				OBJ_19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "Anomalii" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_23 /* Build configuration list for PBXNativeTarget "AnomaliiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_24 /* Debug */,
+				OBJ_25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_32 /* Build configuration list for PBXNativeTarget "Anomalii" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_33 /* Debug */,
+				OBJ_34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_39 /* Build configuration list for PBXAggregateTarget "AnomaliiPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_40 /* Debug */,
+				OBJ_41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
