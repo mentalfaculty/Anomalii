@@ -8,7 +8,6 @@
 import Foundation
 
 class Solver: Mutator, FitnessEvaluator {
-    
     let initialPopulation: [Expression]
     let constraintsForRandomExpressions = ExpressionConstraints(constantRange: -10...10)
     
@@ -20,11 +19,11 @@ class Solver: Mutator, FitnessEvaluator {
         initialPopulation = [Expression]()
     }
     
-    func expression(byCrossing expression1: Expression, with expression2: Expression) -> Expression {
+    func expression(crossing expression1: Expression, with expression2: Expression) -> Expression {
         return expression1
     }
     
-    func expression(byMutating expression: Expression) -> Expression {
+    func expression(mutating expression: Expression) -> Expression {
         return expression
     }
     

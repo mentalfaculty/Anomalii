@@ -6,8 +6,8 @@
 //
 
 protocol Mutator: class {
-    func expression(byMutating expression: Expression) -> Expression
-    func expression(byCrossing expression1: Expression, with expression2: Expression) -> Expression
+    func expression(mutating expression: Expression) -> Expression
+    func expression(crossing expression1: Expression, with expression2: Expression) -> Expression
 }
 
 class StandardMutator: Mutator {
@@ -17,38 +17,27 @@ class StandardMutator: Mutator {
         self.variables = variables
     }
     
-    func expression(byMutating expression: Expression) -> Expression {
+    func expression(mutating expression: Expression) -> Expression {
         // Implement as a cross with a random expression
         let expressionMaker = ExpressionMaker(variables: variables, maximumDepth: expression.depth)
         let other = expressionMaker.expression(withOutputType: .scalar)
-        return expression(byCrossing: expression, with: other)
+        return self.expression(crossing: expression, with: other)
     }
     
-    func expression(byCrossing expression1: Expression, with expression2: Expression) -> Expression {
-        // Choose random node index
-        let indexToCross1 = indexOfRandomNode(in: expression1)
-        let indexToCross2 = indexOfRandomNode(in: expression2)
+    func expression(crossing expression1: Expression, with expression2: Expression) -> Expression {
+        // Choose random subtrees
+        let indexToCross1 = randomTraversalIndex(in: expression1)
+        let indexToCross2 = randomTraversalIndex(in: expression2)
+        let subExpression2 = expression2.expression(at: indexToCross2)
         
-        // Mutate that node
-        var index = 0
-        let newExpression = expression.transformed { e in
-            if isChosenType(expression: e) {
-                let mutate = index == indexToMutate
-                index += 1
-                if mutate {
-                    expressionMaker.maximumDepth = (0...maximumDepthForNewExpressions).random
-                    return expressionMaker.expression(withOutputType: .scalar)
-                }
-            }
-            return e
-        }
-        
-        return newExpression
+        // Substitute the node
+        return expression1.expression(substituting: subExpression2, at: indexToCross1)
     }
     
-    private func indexOfRandomNode(in expression: Expression) -> Int {
-        var numberNodes = 0
-        while numberOfNodes == 0 {
+    private func randomTraversalIndex(in expression: Expression) -> TraversalIndex {
+        var nodeCount = 0
+        var result: TraversalIndex?
+        while result == nil {
             let mutateLeaf = (0.0...1.0).random > 0.9 // 10% leaf mutation
             func isChosenType(expression: Expression) -> Bool {
                 if mutateLeaf {
@@ -57,12 +46,10 @@ class StandardMutator: Mutator {
                     return expression is Operator
                 }
             }
-            
-            // Count leaves
-            numberNodes = 0
-            expression.traverse { numberNodes += isChosenType(expression: $0) ? 1 : 0 }
+            nodeCount = expression.count(where: isChosenType)
+            result = TraversalIndex(index:(0...nodeCount-1).random, visitCondition: isChosenType)
         }
-        return (0...numberNodes-1).random
+        return result!
     }
     
 }

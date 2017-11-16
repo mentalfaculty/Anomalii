@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		076C08231FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
+		076C08241FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
 		07ACFAC41FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
 		07ACFAC51FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
 		07ACFAC71FBB847F00197723 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC61FBB847F00197723 /* Operator.swift */; };
@@ -69,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		076C08221FBDFB33007668CB /* Traversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traversal.swift; sourceTree = "<group>"; };
 		07ACFAC31FBB846300197723 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		07ACFAC61FBB847F00197723 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		07ACFAC91FBB84AD00197723 /* Scalar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalar.swift; sourceTree = "<group>"; };
@@ -134,7 +137,7 @@
 			path = ..;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -142,7 +145,6 @@
 				OBJ_10 /* Tests */,
 				OBJ_13 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -160,6 +162,7 @@
 				07ACFADE1FBB85BF00197723 /* Random.swift */,
 				07ACFAD21FBB851D00197723 /* Value.swift */,
 				07ACFAC31FBB846300197723 /* Expression.swift */,
+				076C08221FBDFB33007668CB /* Traversal.swift */,
 				07ACFAC61FBB847F00197723 /* Operator.swift */,
 				07ACFAC91FBB84AD00197723 /* Scalar.swift */,
 				07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */,
@@ -239,7 +242,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +264,7 @@
 				OBJ_21 /* Package.swift in Sources */,
 				07ACFAE21FBB85DC00197723 /* Solver.swift in Sources */,
 				07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */,
+				076C08231FBDFB33007668CB /* Traversal.swift in Sources */,
 				07ACFAD31FBB851D00197723 /* Value.swift in Sources */,
 				07ACFAD91FBB856800197723 /* PopulationInitializer.swift in Sources */,
 				07ACFAC71FBB847F00197723 /* Operator.swift in Sources */,
@@ -289,6 +293,7 @@
 				OBJ_36 /* Anomalii.swift in Sources */,
 				07ACFAE31FBB85DC00197723 /* Solver.swift in Sources */,
 				07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */,
+				076C08241FBDFB33007668CB /* Traversal.swift in Sources */,
 				07ACFAD41FBB851D00197723 /* Value.swift in Sources */,
 				07ACFADA1FBB856800197723 /* PopulationInitializer.swift in Sources */,
 				07ACFAC81FBB847F00197723 /* Operator.swift in Sources */,

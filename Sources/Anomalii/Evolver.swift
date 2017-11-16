@@ -54,12 +54,13 @@ class Evolver {
             sortedResults.remove(at: i1)
             let (result2, i2) = sortedResults.fitnessWeightedRandomResult()
             sortedResults.remove(at: i2)
-            newPopulation += mutator.expression(byCrossing: result1.expression, with: result2.expression)
+            let crossedExpression = mutator.expression(crossing: result1.expression, with: result2.expression)
+            newPopulation.append(crossedExpression)
         }
         
         // Remainder get mutated
         for result in sortedResults {
-            let newExpression = mutator.expression(byMutating: result.expression)
+            let newExpression = mutator.expression(mutating: result.expression)
             newPopulation.append(newExpression)
         }
         

@@ -33,7 +33,7 @@ extension Terminal {
     }
 }
 
-struct Constant: Terminal {
+struct Constant: Terminal {    
     let value: Double
     static var outputType: ValueType { return .scalar }
     
