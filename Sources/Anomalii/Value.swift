@@ -5,14 +5,31 @@
 //  Created by Drew McCormack on 14/11/2017.
 //
 
-enum ValueType {
-    case scalar
-}
-
-protocol Value {
-    static var type: ValueType { get }
-}
-
-extension Double: Value {
-    static var type: ValueType { return .scalar }
+enum Value {
+    case scalar(Double)
+    
+    enum Kind {
+        case scalar
+    }
+    
+    var kind: Value.Kind {
+        switch self {
+        case .scalar:
+            return .scalar
+        }
+    }
+    
+    static func +(left: Value, right: Value) -> Value {
+        switch (left, right) {
+        case let (.scalar(l), .scalar(r)):
+            return .scalar(l+r)
+        }
+    }
+    
+    static func *(left: Value, right: Value) -> Value {
+        switch (left, right) {
+        case let (.scalar(l), .scalar(r)):
+            return .scalar(l*r)
+        }
+    }
 }

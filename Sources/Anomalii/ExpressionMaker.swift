@@ -17,7 +17,7 @@ class ExpressionMaker {
         self.maximumDepth = maximumDepth
     }
     
-    func expression(withOutputType outputType: ValueType) -> Expression {
+    func expression(withOutputType outputType: Value.Kind) -> Expression {
         precondition(outputType == .scalar)
         var e: Expression
         currentDepth += 1
@@ -35,7 +35,7 @@ class ExpressionMaker {
         } else {
             switch (0...1).random {
             case 0:
-                e = Constant(value: (-10.0...10.0).random)
+                e = Constant(doubleValue: (-10.0...10.0).random)
             case 1:
                 e = variables.random
             default:

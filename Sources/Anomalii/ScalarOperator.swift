@@ -13,8 +13,8 @@ struct ScalarAddition: BinaryOperator, Scalar {
     }
     
     func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString) as! Double
-        let second = children[1].evaluated(for: valuesByString) as! Double
+        let first = children[0].evaluated(for: valuesByString)
+        let second = children[1].evaluated(for: valuesByString)
         return first + second
     }
 }
@@ -27,8 +27,8 @@ struct ScalarMultiply: BinaryOperator, Scalar {
     }
     
     func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString) as! Double
-        let second = children[1].evaluated(for: valuesByString) as! Double
+        let first = children[0].evaluated(for: valuesByString)
+        let second = children[1].evaluated(for: valuesByString)
         return first * second
     }
 }

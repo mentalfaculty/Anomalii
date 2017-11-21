@@ -10,7 +10,7 @@ struct ExpressionConstraints {
 }
 
 protocol Expression {
-    static var outputType: ValueType { get }
+    static var outputType: Value.Kind { get }
     static var arity: Int { get }
     var isValid: Bool { get }
     var depth: Int { get }

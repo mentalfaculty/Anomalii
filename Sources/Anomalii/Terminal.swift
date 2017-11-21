@@ -34,20 +34,20 @@ extension Terminal {
 }
 
 struct Constant: Terminal {    
-    let value: Double
-    static var outputType: ValueType { return .scalar }
+    let doubleValue: Double
+    static var outputType: Value.Kind { return .scalar }
     
-    init(value: Double) {
-        self.value = value
+    init(doubleValue: Double) {
+        self.doubleValue = doubleValue
     }
     
-    func evaluated(for valuesByString: [String:Value]) -> Value { return value }
+    func evaluated(for valuesByString: [String:Value]) -> Value { return .scalar(doubleValue) }
 }
 
 struct Variable: Terminal {
     
     let name: String
-    static let outputType: ValueType = .scalar
+    static let outputType: Value.Kind = .scalar
     
     init(name: String) {
         self.name = name

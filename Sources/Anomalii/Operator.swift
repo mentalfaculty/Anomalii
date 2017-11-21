@@ -6,7 +6,7 @@
 //
 
 protocol Operator: Expression {
-    static var inputTypes: [ValueType] { get }
+    static var inputTypes: [Value.Kind] { get }
     var children: [Expression] { get set }
     init(withChildren children: [Expression])
 }

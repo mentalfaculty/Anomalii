@@ -9,9 +9,9 @@ protocol Scalar: Expression {
 }
 
 extension Scalar {
-    static var outputType: ValueType { return .scalar }
+    static var outputType: Value.Kind { return .scalar }
 }
 
 extension Scalar where Self: BinaryOperator {
-    static var inputTypes: [ValueType] { return [.scalar, .scalar] }
+    static var inputTypes: [Value.Kind] { return [.scalar, .scalar] }
 }
