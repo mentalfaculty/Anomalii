@@ -7,7 +7,7 @@ class ExpressionTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        expression = ScalarAddition(withChildren: [Constant(value: 10), Constant(value: 5)])
+        expression = ScalarAddition(withChildren: [Constant(doubleValue: 10), Constant(doubleValue: 5)])
     }
     
     override func tearDown() {
@@ -27,6 +27,34 @@ class ExpressionTests: XCTestCase {
     }
     
     func testEvaluation() {
-        XCTAssertEqual(expression.evaluated(for: [:]) as! Double, 15.0)
+        guard case let .scalar(value) = expression.evaluated(for: [:]) else { return }
+        XCTAssertEqual(value, 15.0)
+    }
+    
+    func testSameness() {
+        let otherExpression = ScalarAddition(withChildren: [Constant(doubleValue: 5), Constant(doubleValue: 5)])
+        XCTAssertTrue(Constant(doubleValue: 5.0).isSame(as: Constant(doubleValue: 5.0)))
+        XCTAssertTrue(expression.isSame(as: expression))
+        XCTAssertFalse(expression.isSame(as: otherExpression))
+        XCTAssertFalse(Constant(doubleValue: -5.0).isSame(as: Constant(doubleValue: 5.0)))
+        XCTAssertFalse(Variable(name: "blah").isSame(as: Constant(doubleValue: 5.0)))
+        XCTAssertTrue(Variable(name: "blah").isSame(as: Variable(name: "blah")))
+        XCTAssertFalse(Variable(name: "blah").isSame(as: Variable(name: "ball")))
+        XCTAssertFalse(expression.isSame(as: Constant(doubleValue: 5.0)))
+    }
+    
+    func testExtraction() {
+        let firstChild = expression.expression(at: TraversalIndex(index: 0))
+        let secondChild = expression.expression(at: TraversalIndex(index: 1))
+        let root = expression.expression(at: TraversalIndex(index: 2))
+        XCTAssertTrue(expression.isSame(as: root))
+        XCTAssertTrue(Constant(doubleValue: 10).isSame(as: firstChild))
+        XCTAssertTrue(Constant(doubleValue: 5).isSame(as: secondChild))
+    }
+    
+    func testSubstitution() {
+        let substituted = expression.expression(substituting: Variable(name: "bob"), at: TraversalIndex(index: 0))
+        let result = ScalarAddition(withChildren: [Variable(name: "bob"), Constant(doubleValue: 5)])
+        XCTAssertTrue(substituted.isSame(as: result))
     }
 }
