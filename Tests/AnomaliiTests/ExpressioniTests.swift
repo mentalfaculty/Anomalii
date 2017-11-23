@@ -27,8 +27,14 @@ class ExpressionTests: XCTestCase {
     }
     
     func testEvaluation() {
-        guard case let .scalar(value) = expression.evaluated(for: [:]) else { return }
+        guard case let .scalar(value) = expression.evaluated(for: [:]) else { XCTFail(); return }
         XCTAssertEqual(value, 15.0)
+    }
+    
+    func testEvaluationWithVariable() {
+        let e = ScalarAddition(withChildren: [Variable(name: "tom"), Constant(doubleValue: 5)])
+        guard case let .scalar(value) = e.evaluated(for: ["tom":.scalar(-2)]) else { XCTFail(); return }
+        XCTAssertEqual(value, 3.0)
     }
     
     func testSameness() {
