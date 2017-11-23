@@ -35,6 +35,13 @@ extension Operator {
             return result && type(of: indexChild.1).outputType == Self.inputTypes[indexChild.0]
         }
     }
+    
+    func isSame(as other: Expression) -> Bool {
+        guard let otherOperator = other as? Self else { return false }
+        return zip(children, otherOperator.children).reduce(true) { (result, pair) in
+            return result && pair.0.isSame(as: pair.1)
+        }
+    }
 }
 
 protocol BinaryOperator: Operator {

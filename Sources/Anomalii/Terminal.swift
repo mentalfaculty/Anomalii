@@ -42,6 +42,11 @@ struct Constant: Terminal {
     }
     
     func evaluated(for valuesByString: [String:Value]) -> Value { return .scalar(doubleValue) }
+    
+    func isSame(as other: Expression) -> Bool {
+        guard let otherConstant = other as? Constant else { return false }
+        return doubleValue == otherConstant.doubleValue
+    }
 }
 
 struct Variable: Terminal {
@@ -55,6 +60,11 @@ struct Variable: Terminal {
     
     func evaluated(for valuesByString: [String:Value]) -> Value {
         return valuesByString[name]!
+    }
+    
+    func isSame(as other: Expression) -> Bool {
+        guard let otherVariable = other as? Variable else { return false }
+        return name == otherVariable.name
     }
 }
 

@@ -18,4 +18,6 @@ protocol Expression {
     func transformed(where condition: ((Expression)->Bool)?, by transformer: (Expression)->Expression) -> Expression
     func traverse(where condition: ((Expression)->Bool)?, visitWith visiter: (Expression)->Void)
     func count(where condition: ((Expression)->Bool)?) -> Int
+    func isSame(as other: Expression) -> Bool
 }
+
