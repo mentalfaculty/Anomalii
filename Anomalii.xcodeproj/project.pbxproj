@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		071BC7811FC8A4E6004C6582 /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BC7801FC8A4E6004C6582 /* CodableTests.swift */; };
+		07661FF71FC9B33A004FF591 /* OratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07661FF61FC9B33A004FF591 /* OratorTests.swift */; };
 		076C08231FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
 		076C08241FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
 		07ACFAC41FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		071BC7801FC8A4E6004C6582 /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
+		07661FF61FC9B33A004FF591 /* OratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OratorTests.swift; sourceTree = "<group>"; };
 		076C08221FBDFB33007668CB /* Traversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traversal.swift; sourceTree = "<group>"; };
 		07ACFAC31FBB846300197723 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		07ACFAC61FBB847F00197723 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				OBJ_12 /* ExpressionTests.swift */,
 				071BC7801FC8A4E6004C6582 /* CodableTests.swift */,
+				07661FF61FC9B33A004FF591 /* OratorTests.swift */,
 			);
 			name = AnomaliiTests;
 			path = Tests/AnomaliiTests;
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				07661FF71FC9B33A004FF591 /* OratorTests.swift in Sources */,
 				071BC7811FC8A4E6004C6582 /* CodableTests.swift in Sources */,
 				OBJ_27 /* ExpressionTests.swift in Sources */,
 			);

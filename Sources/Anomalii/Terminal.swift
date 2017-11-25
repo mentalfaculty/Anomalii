@@ -69,7 +69,7 @@ struct Variable: Terminal {
     let name: String
     static let outputType: Value.Kind = .scalar
     
-    init(name: String) {
+    init(named name: String) {
         self.name = name
     }
     

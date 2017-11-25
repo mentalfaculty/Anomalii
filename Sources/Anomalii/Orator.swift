@@ -9,7 +9,8 @@ import Foundation
 
 /// An expression maker
 class Orator {
-    let variables: [Variable]
+    var operatorTypes: [Operator.Type] = [ScalarAddition.self, ScalarMultiplication.self]
+    var variables: [Variable]
     var maximumDepth: Int
     private var currentDepth = 0
     
@@ -25,14 +26,8 @@ class Orator {
         defer { currentDepth -= 1 }
         if currentDepth < maximumDepth {
             let children = [expression(withOutputType: .scalar), expression(withOutputType: .scalar)]
-            switch (0...1).random {
-            case 0:
-                e = ScalarAddition(withChildren: children)
-            case 1:
-                e = ScalarMultiplication(withChildren: children)
-            default:
-                fatalError()
-            }
+            let op = operatorTypes.random
+            e = op.init(withChildren: children)
         } else {
             switch (0...1).random {
             case 0:

@@ -32,7 +32,7 @@ class ExpressionTests: XCTestCase {
     }
     
     func testEvaluationWithVariable() {
-        let e = ScalarAddition(withChildren: [Variable(name: "tom"), Constant(doubleValue: 5)])
+        let e = ScalarAddition(withChildren: [Variable(named: "tom"), Constant(doubleValue: 5)])
         guard case let .scalar(value) = e.evaluated(for: ["tom":.scalar(-2)]) else { XCTFail(); return }
         XCTAssertEqual(value, 3.0)
     }
@@ -43,9 +43,9 @@ class ExpressionTests: XCTestCase {
         XCTAssertTrue(expression.isSame(as: expression))
         XCTAssertFalse(expression.isSame(as: otherExpression))
         XCTAssertFalse(Constant(doubleValue: -5.0).isSame(as: Constant(doubleValue: 5.0)))
-        XCTAssertFalse(Variable(name: "blah").isSame(as: Constant(doubleValue: 5.0)))
-        XCTAssertTrue(Variable(name: "blah").isSame(as: Variable(name: "blah")))
-        XCTAssertFalse(Variable(name: "blah").isSame(as: Variable(name: "ball")))
+        XCTAssertFalse(Variable(named: "blah").isSame(as: Constant(doubleValue: 5.0)))
+        XCTAssertTrue(Variable(named: "blah").isSame(as: Variable(named: "blah")))
+        XCTAssertFalse(Variable(named: "blah").isSame(as: Variable(named: "ball")))
         XCTAssertFalse(expression.isSame(as: Constant(doubleValue: 5.0)))
     }
     
@@ -59,8 +59,8 @@ class ExpressionTests: XCTestCase {
     }
     
     func testSubstitution() {
-        let substituted = expression.expression(substituting: Variable(name: "bob"), at: TraversalIndex(index: 0))
-        let result = ScalarAddition(withChildren: [Variable(name: "bob"), Constant(doubleValue: 5)])
+        let substituted = expression.expression(substituting: Variable(named: "bob"), at: TraversalIndex(index: 0))
+        let result = ScalarAddition(withChildren: [Variable(named: "bob"), Constant(doubleValue: 5)])
         XCTAssertTrue(substituted.isSame(as: result))
     }
 }
