@@ -1,5 +1,5 @@
 //
-//  ExpressionMaker.swift
+//  Orator.swift
 //  Anomalii
 //
 //  Created by Drew McCormack on 14/11/2017.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-class ExpressionMaker {
+/// An expression maker
+class Orator {
     let variables: [Variable]
     var maximumDepth: Int
     private var currentDepth = 0

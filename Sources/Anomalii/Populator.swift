@@ -15,18 +15,18 @@ class Populator {
     
     let constraints: Constraints
     let variables: [Variable]
-    private let expressionMaker: ExpressionMaker
+    private let orator: Orator
     
     init(withConstaints constraints: Constraints, variables: [Variable]) {
         self.constraints = constraints
         self.variables = variables
-        self.expressionMaker = ExpressionMaker(variables: variables, maximumDepth: constraints.maximumDepth)
+        self.orator = Orator(variables: variables, maximumDepth: constraints.maximumDepth)
     }
     
     func makePopulation() -> [Expression] {
         var population = [Expression]()
         for _ in 0..<constraints.populationSize {
-            let expression = expressionMaker.expression(withOutputType: .scalar)
+            let expression = orator.expression(withOutputType: .scalar)
             population.append(expression)
         }
         return population

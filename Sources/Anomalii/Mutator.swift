@@ -19,8 +19,8 @@ class StandardMutator: Mutator {
     
     func expression(mutating expression: Expression) -> Expression {
         // Implement as a cross with a random expression
-        let expressionMaker = ExpressionMaker(variables: variables, maximumDepth: expression.depth)
-        let other = expressionMaker.expression(withOutputType: .scalar)
+        let orator = Orator(variables: variables, maximumDepth: expression.depth)
+        let other = orator.expression(withOutputType: .scalar)
         return self.expression(crossing: expression, with: other)
     }
     

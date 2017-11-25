@@ -36,8 +36,8 @@
 		07ACFAD11FBB84F300197723 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACF1FBB84F300197723 /* Terminal.swift */; };
 		07ACFAD31FBB851D00197723 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD21FBB851D00197723 /* Value.swift */; };
 		07ACFAD41FBB851D00197723 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD21FBB851D00197723 /* Value.swift */; };
-		07ACFAD61FBB854400197723 /* ExpressionMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* ExpressionMaker.swift */; };
-		07ACFAD71FBB854400197723 /* ExpressionMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* ExpressionMaker.swift */; };
+		07ACFAD61FBB854400197723 /* Orator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* Orator.swift */; };
+		07ACFAD71FBB854400197723 /* Orator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* Orator.swift */; };
 		07ACFAD91FBB856800197723 /* Populator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* Populator.swift */; };
 		07ACFADA1FBB856800197723 /* Populator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* Populator.swift */; };
 		07ACFADC1FBB859400197723 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADB1FBB859400197723 /* Mutator.swift */; };
@@ -80,7 +80,7 @@
 		07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalarOperator.swift; sourceTree = "<group>"; };
 		07ACFACF1FBB84F300197723 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
 		07ACFAD21FBB851D00197723 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
-		07ACFAD51FBB854400197723 /* ExpressionMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionMaker.swift; sourceTree = "<group>"; };
+		07ACFAD51FBB854400197723 /* Orator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orator.swift; sourceTree = "<group>"; };
 		07ACFAD81FBB856800197723 /* Populator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Populator.swift; sourceTree = "<group>"; };
 		07ACFADB1FBB859400197723 /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
 		07ACFADE1FBB85BF00197723 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				07ACFAC91FBB84AD00197723 /* Scalar.swift */,
 				07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */,
 				07ACFACF1FBB84F300197723 /* Terminal.swift */,
-				07ACFAD51FBB854400197723 /* ExpressionMaker.swift */,
+				07ACFAD51FBB854400197723 /* Orator.swift */,
 				07ACFAD81FBB856800197723 /* Populator.swift */,
 				07ACFADB1FBB859400197723 /* Mutator.swift */,
 				07ACFAE41FBB861400197723 /* Evolver.swift */,
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				07ACFAD61FBB854400197723 /* ExpressionMaker.swift in Sources */,
+				07ACFAD61FBB854400197723 /* Orator.swift in Sources */,
 				OBJ_21 /* Package.swift in Sources */,
 				07ACFAE21FBB85DC00197723 /* Solver.swift in Sources */,
 				07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */,
@@ -293,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				07ACFAD71FBB854400197723 /* ExpressionMaker.swift in Sources */,
+				07ACFAD71FBB854400197723 /* Orator.swift in Sources */,
 				OBJ_36 /* Anomalii.swift in Sources */,
 				07ACFAE31FBB85DC00197723 /* Solver.swift in Sources */,
 				07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */,
