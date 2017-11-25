@@ -38,8 +38,8 @@
 		07ACFAD41FBB851D00197723 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD21FBB851D00197723 /* Value.swift */; };
 		07ACFAD61FBB854400197723 /* ExpressionMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* ExpressionMaker.swift */; };
 		07ACFAD71FBB854400197723 /* ExpressionMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD51FBB854400197723 /* ExpressionMaker.swift */; };
-		07ACFAD91FBB856800197723 /* PopulationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* PopulationInitializer.swift */; };
-		07ACFADA1FBB856800197723 /* PopulationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* PopulationInitializer.swift */; };
+		07ACFAD91FBB856800197723 /* Populator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* Populator.swift */; };
+		07ACFADA1FBB856800197723 /* Populator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAD81FBB856800197723 /* Populator.swift */; };
 		07ACFADC1FBB859400197723 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADB1FBB859400197723 /* Mutator.swift */; };
 		07ACFADD1FBB859400197723 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADB1FBB859400197723 /* Mutator.swift */; };
 		07ACFADF1FBB85BF00197723 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFADE1FBB85BF00197723 /* Random.swift */; };
@@ -81,7 +81,7 @@
 		07ACFACF1FBB84F300197723 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
 		07ACFAD21FBB851D00197723 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		07ACFAD51FBB854400197723 /* ExpressionMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionMaker.swift; sourceTree = "<group>"; };
-		07ACFAD81FBB856800197723 /* PopulationInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationInitializer.swift; sourceTree = "<group>"; };
+		07ACFAD81FBB856800197723 /* Populator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Populator.swift; sourceTree = "<group>"; };
 		07ACFADB1FBB859400197723 /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
 		07ACFADE1FBB85BF00197723 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		07ACFAE11FBB85DC00197723 /* Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solver.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 				07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */,
 				07ACFACF1FBB84F300197723 /* Terminal.swift */,
 				07ACFAD51FBB854400197723 /* ExpressionMaker.swift */,
-				07ACFAD81FBB856800197723 /* PopulationInitializer.swift */,
+				07ACFAD81FBB856800197723 /* Populator.swift */,
 				07ACFADB1FBB859400197723 /* Mutator.swift */,
 				07ACFAE41FBB861400197723 /* Evolver.swift */,
 				07ACFAE11FBB85DC00197723 /* Solver.swift */,
@@ -269,7 +269,7 @@
 				07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */,
 				076C08231FBDFB33007668CB /* Traversal.swift in Sources */,
 				07ACFAD31FBB851D00197723 /* Value.swift in Sources */,
-				07ACFAD91FBB856800197723 /* PopulationInitializer.swift in Sources */,
+				07ACFAD91FBB856800197723 /* Populator.swift in Sources */,
 				07ACFAC71FBB847F00197723 /* Operator.swift in Sources */,
 				07ACFAD01FBB84F300197723 /* Terminal.swift in Sources */,
 				07ACFAC41FBB846300197723 /* Expression.swift in Sources */,
@@ -299,7 +299,7 @@
 				07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */,
 				076C08241FBDFB33007668CB /* Traversal.swift in Sources */,
 				07ACFAD41FBB851D00197723 /* Value.swift in Sources */,
-				07ACFADA1FBB856800197723 /* PopulationInitializer.swift in Sources */,
+				07ACFADA1FBB856800197723 /* Populator.swift in Sources */,
 				07ACFAC81FBB847F00197723 /* Operator.swift in Sources */,
 				07ACFAD11FBB84F300197723 /* Terminal.swift in Sources */,
 				07ACFAC51FBB846300197723 /* Expression.swift in Sources */,
