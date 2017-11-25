@@ -5,6 +5,10 @@
 //  Created by Drew McCormack on 14/11/2017.
 //
 
+enum OperatorCodingKey: String, CodingKey {
+    case children
+}
+
 protocol Operator: Expression {
     static var inputTypes: [Value.Kind] { get }
     var children: [Expression] { get set }
@@ -16,6 +20,19 @@ extension Operator {
     
     var depth: Int {
         return 1 + children.reduce(0) { max($1.depth, $0) }
+    }
+    
+    init(from decoder: Decoder) throws {
+        self.init(withChildren: [])
+        let values = try decoder.container(keyedBy: OperatorCodingKey.self)
+        let anyChildren = try values.decode([AnyExpression].self, forKey: .children)
+        children = anyChildren.map { $0.expression }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: OperatorCodingKey.self)
+        let anyChildren = children.map { AnyExpression($0) }
+        try container.encode(anyChildren, forKey: .children)
     }
     
     func traverse(where condition: ((Expression)->Bool)? = nil, visitWith visiter: (Expression)->Void) {

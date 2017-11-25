@@ -33,12 +33,27 @@ extension Terminal {
     }
 }
 
-struct Constant: Terminal {    
+struct Constant: Terminal {
+    static let codingKey = "constant"
     let doubleValue: Double
     static var outputType: Value.Kind { return .scalar }
     
     init(doubleValue: Double) {
         self.doubleValue = doubleValue
+    }
+    
+    enum Key: String, CodingKey {
+        case doubleValue
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: Key.self)
+        doubleValue = try values.decode(Double.self, forKey: .doubleValue)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: Key.self)
+        try container.encode(doubleValue, forKey: .doubleValue)
     }
     
     func evaluated(for valuesByString: [String:Value]) -> Value { return .scalar(doubleValue) }
@@ -50,12 +65,26 @@ struct Constant: Terminal {
 }
 
 struct Variable: Terminal {
-    
+    static let codingKey = "variable"
     let name: String
     static let outputType: Value.Kind = .scalar
     
     init(name: String) {
         self.name = name
+    }
+    
+    enum Key: String, CodingKey {
+        case name
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: Key.self)
+        name = try values.decode(String.self, forKey: .name)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: Key.self)
+        try container.encode(name, forKey: .name)
     }
     
     func evaluated(for valuesByString: [String:Value]) -> Value {

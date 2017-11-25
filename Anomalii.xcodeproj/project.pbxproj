@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		071BC7811FC8A4E6004C6582 /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BC7801FC8A4E6004C6582 /* CodableTests.swift */; };
 		076C08231FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
 		076C08241FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
 		07ACFAC41FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
@@ -48,7 +49,7 @@
 		07ACFAE51FBB861400197723 /* Evolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE41FBB861400197723 /* Evolver.swift */; };
 		07ACFAE61FBB861400197723 /* Evolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE41FBB861400197723 /* Evolver.swift */; };
 		OBJ_21 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_27 /* ExpressioniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ExpressioniTests.swift */; };
+		OBJ_27 /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ExpressionTests.swift */; };
 		OBJ_29 /* Anomalii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Anomalii::Anomalii::Product" /* Anomalii.framework */; };
 		OBJ_36 /* Anomalii.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Anomalii.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071BC7801FC8A4E6004C6582 /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
 		076C08221FBDFB33007668CB /* Traversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traversal.swift; sourceTree = "<group>"; };
 		07ACFAC31FBB846300197723 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		07ACFAC61FBB847F00197723 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		07ACFAE41FBB861400197723 /* Evolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evolver.swift; sourceTree = "<group>"; };
 		"Anomalii::Anomalii::Product" /* Anomalii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Anomalii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Anomalii::AnomaliiTests::Product" /* AnomaliiTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnomaliiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_12 /* ExpressioniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressioniTests.swift; sourceTree = "<group>"; };
+		OBJ_12 /* ExpressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* Anomalii.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anomalii.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +123,8 @@
 		OBJ_11 /* AnomaliiTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* ExpressioniTests.swift */,
+				OBJ_12 /* ExpressionTests.swift */,
+				071BC7801FC8A4E6004C6582 /* CodableTests.swift */,
 			);
 			name = AnomaliiTests;
 			path = Tests/AnomaliiTests;
@@ -281,7 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_27 /* ExpressioniTests.swift in Sources */,
+				071BC7811FC8A4E6004C6582 /* CodableTests.swift in Sources */,
+				OBJ_27 /* ExpressionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

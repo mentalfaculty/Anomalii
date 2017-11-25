@@ -6,6 +6,7 @@
 //
 
 struct ScalarAddition: BinaryOperator, Scalar {
+    static let codingKey = "scalarAddition"
     var children: [Expression]
     
     init(withChildren children: [Expression]) {
@@ -19,7 +20,8 @@ struct ScalarAddition: BinaryOperator, Scalar {
     }
 }
 
-struct ScalarMultiply: BinaryOperator, Scalar {
+struct ScalarMultiplication: BinaryOperator, Scalar {
+    static let codingKey = "scalarMultiplication"
     var children: [Expression]
     
     init(withChildren children: [Expression]) {

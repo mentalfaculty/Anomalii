@@ -28,7 +28,7 @@ class ExpressionMaker {
             case 0:
                 e = ScalarAddition(withChildren: children)
             case 1:
-                e = ScalarMultiply(withChildren: children)
+                e = ScalarMultiplication(withChildren: children)
             default:
                 fatalError()
             }
