@@ -8,10 +8,18 @@
 import Foundation
 
 protocol FitnessEvaluator: class {
-    func fitness(of epxression: Expression) -> Double
+    func fitness(of expression: Expression) -> Double
 }
 
 class Evolver {
+    
+    fileprivate struct FitnessResult: Hashable {
+        let populationIndex: Int
+        let expression: Expression
+        let fitness: Double
+        var hashValue: Int { return populationIndex.hashValue }
+        static func ==(left: FitnessResult, right: FitnessResult) -> Bool { return left.populationIndex == right.populationIndex }
+    }
     
     var population: [Expression]
     weak var fitnessEvaluator: FitnessEvaluator!
@@ -31,29 +39,24 @@ class Evolver {
         let fitnessResults = population.enumerated().map { (index, expression) in
             return FitnessResult(populationIndex: index, expression: expression, fitness: fitnessEvaluator.fitness(of: expression))
         }
-        var sortedResults = fitnessResults.sorted { $0.fitness > $1.fitness } // Best first
+        var elitismCandidates = fitnessResults.sorted { $0.fitness > $1.fitness } // Best first
         
         // Elitism: the best 1% go direct to the new population
-        let numberElites = Int(Double(populationSize) * 0.01)
-        let eliteResults = sortedResults[0..<numberElites]
+        let numberElites = Int(ceil(Double(populationSize) * 0.01))
+        let eliteResults = elitismCandidates[0..<numberElites]
+        elitismCandidates.removeFirst(numberElites)
         newPopulation += eliteResults.map { $0.expression }
-        sortedResults.removeFirst(eliteResults.count)
         
-        // Semi-Elite: 18% from the remainder are randomly selected (weighted by fitness)
-        let numberSemiElites = Int(Double(populationSize) * 0.18)
+        // Semi-Elite: 4% from the remainder are randomly selected (weighted by fitness)
+        let numberSemiElites = Int(Double(populationSize) * 0.08)
         for _ in 0..<numberSemiElites {
-            let (result, index) = sortedResults.fitnessWeightedRandomResult()
+            let (result, index) = elitismCandidates.fitnessWeightedRandomResult()
             newPopulation.append(result.expression)
-            sortedResults.remove(at: index)
         }
         
-        // From the remaining, use crossover for 80%
-        let numberCrossover = (Int(Double(sortedResults.count) * 0.8) / 2) * 2 // Even
-        for _ in 0..<numberCrossover/2 {
-            let (result1, i1) = sortedResults.fitnessWeightedRandomResult()
-            sortedResults.remove(at: i1)
-            let (result2, i2) = sortedResults.fitnessWeightedRandomResult()
-            sortedResults.remove(at: i2)
+        // Crossover is used for 90%
+        let numberCrossover = Int(Double(populationSize) * 0.90)
+        for _ in numberCrossover {
             let crossedExpression = mutator.expression(crossing: result1.expression, with: result2.expression)
             newPopulation.append(crossedExpression)
         }
@@ -65,14 +68,6 @@ class Evolver {
         }
         
         population = newPopulation
-    }
-    
-    fileprivate struct FitnessResult: Hashable {
-        let populationIndex: Int
-        let expression: Expression
-        let fitness: Double
-        var hashValue: Int { return populationIndex.hashValue }
-        static func ==(left: FitnessResult, right: FitnessResult) -> Bool { return left.populationIndex == right.populationIndex }
     }
 }
 

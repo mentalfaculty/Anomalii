@@ -29,5 +29,9 @@ extension Array {
     var random: Element {
         return self[(0...count-1).random]
     }
+    
+    func random(choosing numberElements: Int) {
+        
+    }
 }
 
