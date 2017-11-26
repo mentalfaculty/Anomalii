@@ -1,5 +1,5 @@
 //
-//  StandardMutableTests.swift
+//  StandardMutatorTests.swift
 //  AnomaliiTests
 //
 //  Created by Drew McCormack on 26/11/2017.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Anomalii
 
-class StandardMutableTests: XCTestCase {
+class StandardMutatorTests: XCTestCase {
     
     let mutator = StandardMutator(variables: [Variable(named: "x")])
     var e1, e2: Expression!
