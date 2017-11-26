@@ -15,6 +15,7 @@ class StandardMutatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
         let sub1 = ScalarAddition(withChildren: [Constant(doubleValue: 10), Constant(doubleValue: 5)])
         e1 = ScalarAddition(withChildren: [sub1, Constant(doubleValue: 4)])
         e2 = ScalarAddition(withChildren: [Constant(doubleValue: 2), Constant(doubleValue: 3)])

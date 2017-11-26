@@ -62,6 +62,10 @@ struct Constant: Terminal {
         guard let otherConstant = other as? Constant else { return false }
         return doubleValue == otherConstant.doubleValue
     }
+    
+    var description: String {
+        return "\(doubleValue)"
+    }
 }
 
 struct Variable: Terminal {
@@ -94,6 +98,10 @@ struct Variable: Terminal {
     func isSame(as other: Expression) -> Bool {
         guard let otherVariable = other as? Variable else { return false }
         return name == otherVariable.name
+    }
+    
+    var description: String {
+        return "\(name)"
     }
 }
 

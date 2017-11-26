@@ -9,7 +9,7 @@ struct ExpressionConstraints {
     let constantRange: ClosedRange<Double>
 }
 
-protocol Expression: Codable {
+protocol Expression: Codable, CustomStringConvertible {
     static var codingKey: String { get }
     static var outputType: Value.Kind { get }
     static var arity: Int { get }

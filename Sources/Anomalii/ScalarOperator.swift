@@ -18,6 +18,10 @@ struct ScalarAddition: BinaryOperator, Scalar {
         let second = children[1].evaluated(for: valuesByString)
         return first + second
     }
+    
+    var description: String {
+        return "(\(children.first!) + \(children.last!))"
+    }
 }
 
 struct ScalarMultiplication: BinaryOperator, Scalar {
@@ -32,5 +36,9 @@ struct ScalarMultiplication: BinaryOperator, Scalar {
         let first = children[0].evaluated(for: valuesByString)
         let second = children[1].evaluated(for: valuesByString)
         return first * second
+    }
+    
+    var description: String {
+        return "(\(children.first!) * \(children.last!))"
     }
 }
