@@ -47,24 +47,30 @@ class Evolver {
         elitismCandidates.removeFirst(numberElites)
         newPopulation += eliteResults.map { $0.expression }
         
-        // Semi-Elite: 4% from the remainder are randomly selected (weighted by fitness)
-        let numberSemiElites = Int(Double(populationSize) * 0.08)
+        // Semi-Elite: 8% from the remainder are randomly selected (weighted by fitness)
+        let numberSemiElites = Int(ceil(Double(populationSize) * 0.08))
         for _ in 0..<numberSemiElites {
             let (result, index) = elitismCandidates.fitnessWeightedRandomResult()
+            elitismCandidates.remove(at: index)
             newPopulation.append(result.expression)
         }
         
-        // Crossover is used for 90%
-        let numberCrossover = Int(Double(populationSize) * 0.90)
-        for _ in numberCrossover {
-            let crossedExpression = mutator.expression(crossing: result1.expression, with: result2.expression)
+        // Crossover is used for 90%. We do tournaments of 3 randomly chosen contestants for each tournament.
+        let tournamentSize = 3
+        let numberCrossover = Int(ceil(Double(populationSize) * 0.90))
+        for _ in 0..<numberCrossover {
+            let firstWinner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
+            let secondWinner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
+            let crossedExpression = mutator.expression(crossing: firstWinner, with: secondWinner)
             newPopulation.append(crossedExpression)
         }
         
         // Remainder get mutated
-        for result in sortedResults {
-            let newExpression = mutator.expression(mutating: result.expression)
-            newPopulation.append(newExpression)
+        let numberOfMutated = populationSize - numberElites - numberSemiElites - numberCrossover
+        for _ in 0..<numberOfMutated {
+            let winner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
+            let mutatedExpression = mutator.expression(mutating: winner)
+            newPopulation.append(mutatedExpression)
         }
         
         population = newPopulation
