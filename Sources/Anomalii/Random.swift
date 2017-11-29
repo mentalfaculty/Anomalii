@@ -30,8 +30,14 @@ extension Array {
         return self[(0...count-1).random]
     }
     
-    func random(choosing numberElements: Int) {
-        
+    func random(choosing numberElements: Int) -> [Element] {
+        guard numberElements < count else { return self }
+        var indexes = Set<Int>()
+        while indexes.count < numberElements {
+            let random: Int = (0...count-1).random
+            indexes.insert(random)
+        }
+        return indexes.map { self[$0] }
     }
 }
 
