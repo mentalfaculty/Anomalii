@@ -9,15 +9,15 @@ import Foundation
 
 class Populator {
     struct Constraints {
-        let populationSize: Int
-        let maximumDepth: Int
+        var populationSize: Int = 500
+        var maximumDepth: Int = 10
     }
     
     let constraints: Constraints
     let variables: [Variable]
     private let orator: Orator
     
-    init(withConstaints constraints: Constraints, variables: [Variable]) {
+    init(withConstraints constraints: Constraints, variables: [Variable]) {
         self.constraints = constraints
         self.variables = variables
         self.orator = Orator(variables: variables, maximumDepth: constraints.maximumDepth)

@@ -13,7 +13,7 @@ protocol FitnessEvaluator: class {
 
 class Evolver {
     
-    fileprivate struct FitnessResult: Hashable {
+    struct FitnessResult: Hashable {
         let populationIndex: Int
         let expression: Expression
         let fitness: Double
@@ -34,21 +34,17 @@ class Evolver {
     func evolve() {
         let populationSize = population.count
         var newPopulation: [Expression] = []
-        
-        // Calculate fitnesses
-        let fitnessResults = population.enumerated().map { (index, expression) in
-            return FitnessResult(populationIndex: index, expression: expression, fitness: fitnessEvaluator.fitness(of: expression))
-        }
-        var elitismCandidates = fitnessResults.sorted { $0.fitness > $1.fitness } // Best first
+        let fitnessResults = self.fitnessResults()
         
         // Elitism: the best 1% go direct to the new population
-        let numberElites = Int(ceil(Double(populationSize) * 0.01))
+        var elitismCandidates = fitnessResults.sorted { $0.fitness > $1.fitness } // Best first
+        let numberElites = populationSize.portioned(percentage: 1)
         let eliteResults = elitismCandidates[0..<numberElites]
         elitismCandidates.removeFirst(numberElites)
         newPopulation += eliteResults.map { $0.expression }
         
         // Semi-Elite: 8% from the remainder are randomly selected (weighted by fitness)
-        let numberSemiElites = Int(ceil(Double(populationSize) * 0.08))
+        let numberSemiElites = populationSize.portioned(percentage: 8)
         for _ in 0..<numberSemiElites {
             let (result, index) = elitismCandidates.fitnessWeightedRandomResult()
             elitismCandidates.remove(at: index)
@@ -57,7 +53,7 @@ class Evolver {
         
         // Crossover is used for 90%. We do tournaments of 3 randomly chosen contestants for each tournament.
         let tournamentSize = 3
-        let numberCrossover = Int(ceil(Double(populationSize) * 0.90))
+        let numberCrossover = populationSize.portioned(percentage: 90)
         for _ in 0..<numberCrossover {
             let firstWinner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
             let secondWinner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
@@ -74,6 +70,18 @@ class Evolver {
         }
         
         population = newPopulation
+    }
+    
+    func fitnessResults() -> [FitnessResult] {
+        return population.enumerated().map { (index, expression) in
+            return FitnessResult(populationIndex: index, expression: expression, fitness: fitnessEvaluator.fitness(of: expression))
+        }
+    }
+}
+
+extension Int {
+    func portioned(percentage: Double) -> Int {
+        return Int(ceil(Double(self) * percentage / 100.0))
     }
 }
 

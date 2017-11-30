@@ -7,27 +7,38 @@
 
 import Foundation
 
-class Solver: Mutator, FitnessEvaluator {
+class Solver {
+    struct Configuration {
+        var variableNames = ["x"]
+        var constraintsForRandomExpressions = ExpressionConstraints(constantRange: -10...10)
+        var populatorConstraints = Populator.Constraints()
+    }
+    
+    let configuration: Configuration
+    let fitnessEvaluator: FitnessEvaluator
+    let variables: [Variable]
     let initialPopulation: [Expression]
-    let constraintsForRandomExpressions = ExpressionConstraints(constantRange: -10...10)
     
-    lazy var evolver: Evolver = {
-        return Evolver(initialPopulation: initialPopulation, evaluatingFitnessWith: self, mutatingWith: self)
-    }()
-    
-    init() {
-        initialPopulation = [Expression]()
+    var population: [Expression] { return evolver.population }
+    var bestCandidate: Expression {
+        return evolver.fitnessResults().max(by: { $0.fitness < $1.fitness })!.expression
+    }
+
+    private let populator: Populator
+    private let mutator: StandardMutator
+    private let evolver: Evolver
+
+    init(configuration: Configuration, fitnessEvaluator: FitnessEvaluator) {
+        self.variables = configuration.variableNames.map({ Variable(named: $0) })
+        self.configuration = configuration
+        self.fitnessEvaluator = fitnessEvaluator
+        self.mutator = StandardMutator(variables: variables)
+        self.populator = Populator(withConstraints: configuration.populatorConstraints, variables: variables)
+        self.initialPopulation = populator.makePopulation()
+        self.evolver = Evolver(initialPopulation: initialPopulation, evaluatingFitnessWith: fitnessEvaluator, mutatingWith: mutator)
     }
     
-    func expression(crossing expression1: Expression, with expression2: Expression) -> Expression {
-        return expression1
-    }
-    
-    func expression(mutating expression: Expression) -> Expression {
-        return expression
-    }
-    
-    func fitness(of expression: Expression) -> Double {
-        return 1.0
+    func evolve(generations: Int) {
+        (0..<generations).forEach { _ in evolver.evolve() }
     }
 }
