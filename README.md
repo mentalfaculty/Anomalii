@@ -20,7 +20,7 @@ For a detailed overview, see [A Field Guide to Genetic Programming](http://www.g
 - Basic unit tests
 - A basic regression test showing how a function can be fitted by genetic programming
 
-## What is Lacking
+## What is Lacking?
 
 - There are few mathematical operators at this point, though they are very easy to add. Useful would be division and trigonometic functions
 - The plan is to support vector expressions, and perhaps even matrices
