@@ -47,6 +47,7 @@ class StandardMutator: Mutator {
                 }
             }
             nodeCount = expression.count(where: isChosenType)
+            if nodeCount < 1 { continue }
             result = TraversalIndex(index:(0...nodeCount-1).random, visitCondition: isChosenType)
         }
         return result!

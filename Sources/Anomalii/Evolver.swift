@@ -81,7 +81,7 @@ class Evolver {
 
 extension Int {
     func portioned(percentage: Double) -> Int {
-        return Int(ceil(Double(self) * percentage / 100.0))
+        return Int(Double(self) * percentage / 100.0)
     }
 }
 
