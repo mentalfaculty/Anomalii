@@ -1,5 +1,8 @@
 # Anomalii
 
+_Author_: Drew McCormack
+_Last Updated_: 1 December, 2017
+
 An exploratory Swift framework for Genetic Programming.
 
 ## What is Genetic Programming?
