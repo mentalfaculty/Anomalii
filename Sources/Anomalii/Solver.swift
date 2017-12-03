@@ -7,20 +7,21 @@
 
 import Foundation
 
-class Solver {
-    struct Configuration {
-        var variableNames = ["x"]
-        var constraintsForRandomExpressions = ExpressionConstraints(constantRange: -10...10)
-        var populatorConstraints = Populator.Constraints()
+public class Solver {
+    public struct Configuration {
+        public var variableNames = ["x"]
+        public var constraintsForRandomExpressions = ExpressionConstraints(constantRange: -10...10)
+        public var populatorConstraints = Populator.Constraints()
+        public init() {}
     }
     
-    let configuration: Configuration
-    let fitnessEvaluator: FitnessEvaluator
-    let variables: [Variable]
-    let initialPopulation: [Expression]
+    public let configuration: Configuration
+    public let fitnessEvaluator: FitnessEvaluator
+    public let variables: [Variable]
+    public let initialPopulation: [Expression]
     
-    var population: [Expression] { return evolver.population }
-    var bestCandidate: Expression {
+    public var population: [Expression] { return evolver.population }
+    public var bestCandidate: Expression {
         return evolver.fitnessResults().max(by: { $0.fitness < $1.fitness })!.expression
     }
 
@@ -28,7 +29,7 @@ class Solver {
     private let mutator: StandardMutator
     private let evolver: Evolver
 
-    init(configuration: Configuration, fitnessEvaluator: FitnessEvaluator) {
+    public init(configuration: Configuration, fitnessEvaluator: FitnessEvaluator) {
         self.variables = configuration.variableNames.map({ Variable(named: $0) })
         self.configuration = configuration
         self.fitnessEvaluator = fitnessEvaluator
@@ -38,7 +39,7 @@ class Solver {
         self.evolver = Evolver(initialPopulation: initialPopulation, evaluatingFitnessWith: fitnessEvaluator, mutatingWith: mutator)
     }
     
-    func evolve(generations: Int) {
+    public func evolve(generations: Int) {
         (0..<generations).forEach { _ in evolver.evolve() }
     }
 }

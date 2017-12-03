@@ -6,15 +6,9 @@
 //
 
 import XCTest
-@testable import Anomalii
+import Anomalii
 
 class RegressionTests: XCTestCase, FitnessEvaluator {
-    
-//    func savePopulation(toFile fileURL: URL) throws {
-//        let jsonData = try JSONEncoder().encode(population)
-//        let jsonString = String(data: jsonData, encoding: .utf8)!
-//        try jsonString.write(to: fileURL, atomically: true, encoding: .utf8)
-//    }
     
     var x: [Double]!
     var y: [Double]!

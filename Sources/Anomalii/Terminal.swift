@@ -12,23 +12,23 @@ protocol Terminal: Expression {
 }
 
 extension Terminal {
-    static var arity: Int { return 0 }
-    var isValid: Bool { return true }
-    var depth: Int { return 1 }
+    public static var arity: Int { return 0 }
+    public var isValid: Bool { return true }
+    public var depth: Int { return 1 }
     
-    func traverse(executingForEach visiter: (Expression)->Void) {
+    public func traverse(executingForEach visiter: (Expression)->Void) {
         visiter(self)
     }
     
-    func traverse(where condition: ((Expression)->Bool)? = nil, visitWith visiter: (Expression) -> Void) {
+    public func traverse(where condition: ((Expression)->Bool)? = nil, visitWith visiter: (Expression) -> Void) {
         if (condition?(self) ?? true) { visiter(self) }
     }
     
-    func transformed(where condition: ((Expression)->Bool)? = nil, by transformer: (Expression)->Expression) -> Expression {
+    public func transformed(where condition: ((Expression)->Bool)? = nil, by transformer: (Expression)->Expression) -> Expression {
         return (condition?(self) ?? true) ? transformer(self) : self
     }
     
-    func count(where condition: ((Expression) -> Bool)?) -> Int {
+    public func count(where condition: ((Expression) -> Bool)?) -> Int {
         return condition?(self) ?? false ? 1 : 0
     }
 }
@@ -68,39 +68,39 @@ struct Constant: Terminal {
     }
 }
 
-struct Variable: Terminal {
-    static let codingKey = "variable"
-    let name: String
-    static let outputType: Value.Kind = .scalar
+public struct Variable: Terminal {
+    public static let codingKey = "variable"
+    public let name: String
+    public static let outputType: Value.Kind = .scalar
     
-    init(named name: String) {
+    public init(named name: String) {
         self.name = name
     }
     
-    enum Key: String, CodingKey {
+    private enum Key: String, CodingKey {
         case name
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Key.self)
         name = try values.decode(String.self, forKey: .name)
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Key.self)
         try container.encode(name, forKey: .name)
     }
     
-    func evaluated(for valuesByString: [String:Value]) -> Value {
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
         return valuesByString[name]!
     }
     
-    func isSame(as other: Expression) -> Bool {
+    public func isSame(as other: Expression) -> Bool {
         guard let otherVariable = other as? Variable else { return false }
         return name == otherVariable.name
     }
     
-    var description: String {
+    public var description: String {
         return "\(name)"
     }
 }

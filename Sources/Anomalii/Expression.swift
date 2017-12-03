@@ -5,11 +5,11 @@
 //  Created by Drew McCormack on 14/11/2017.
 //
 
-struct ExpressionConstraints {
-    let constantRange: ClosedRange<Double>
+public struct ExpressionConstraints {
+    public let constantRange: ClosedRange<Double>
 }
 
-protocol Expression: Codable, CustomStringConvertible {
+public protocol Expression: Codable, CustomStringConvertible {
     static var codingKey: String { get }
     static var outputType: Value.Kind { get }
     static var arity: Int { get }
@@ -22,7 +22,7 @@ protocol Expression: Codable, CustomStringConvertible {
     func isSame(as other: Expression) -> Bool
 }
 
-struct AnyExpression: Codable {
+internal struct AnyExpression: Codable {
     var expression: Expression
     
     init(_ expression: Expression) {
@@ -48,7 +48,7 @@ struct AnyExpression: Codable {
 }
 
 
-var expressionTypes: [Expression.Type] = [] {
+public var expressionTypes: [Expression.Type] = [] {
     didSet {
         expressionTypesByCodingKey = expressionTypes.reduce([:]) { result, type in
             var newResult = result
@@ -58,4 +58,4 @@ var expressionTypes: [Expression.Type] = [] {
     }
 }
 
-var expressionTypesByCodingKey: [String:Expression.Type] = [:]
+public var expressionTypesByCodingKey: [String:Expression.Type] = [:]

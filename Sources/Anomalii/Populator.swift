@@ -7,23 +7,29 @@
 
 import Foundation
 
-class Populator {
-    struct Constraints {
-        var populationSize: Int = 500
-        var maximumDepth: Int = 10
+public class Populator {
+    
+    public struct Constraints {
+        public var populationSize: Int
+        public var maximumDepth: Int
+        
+        public init(populationSize: Int = 500, maximumDepth: Int = 10) {
+            self.populationSize = populationSize
+            self.maximumDepth = maximumDepth
+        }
     }
     
-    let constraints: Constraints
-    let variables: [Variable]
+    public let constraints: Constraints
+    public let variables: [Variable]
     private let orator: Orator
     
-    init(withConstraints constraints: Constraints, variables: [Variable]) {
+    public init(withConstraints constraints: Constraints, variables: [Variable]) {
         self.constraints = constraints
         self.variables = variables
         self.orator = Orator(variables: variables, maximumDepth: constraints.maximumDepth)
     }
     
-    func makePopulation() -> [Expression] {
+    public func makePopulation() -> [Expression] {
         var population = [Expression]()
         for _ in 0..<constraints.populationSize {
             let expression = orator.expression(withOutputType: .scalar)
@@ -31,4 +37,5 @@ class Populator {
         }
         return population
     }
+    
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FitnessEvaluator: class {
+public protocol FitnessEvaluator: class {
     func fitness(of expression: Expression) -> Double
 }
 

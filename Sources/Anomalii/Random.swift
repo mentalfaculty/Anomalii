@@ -7,30 +7,30 @@
 
 import Foundation
 
-extension Double {
-    static var random: Double {
+public extension Double {
+    public static var random: Double {
         return Double(arc4random()) / Double(UInt32.max)
     }
 }
 
-extension ClosedRange where Bound == Int {
-    var random: Int {
+public extension ClosedRange where Bound == Int {
+    public var random: Int {
         return lowerBound + Int(arc4random() % UInt32(count))
     }
 }
 
-extension ClosedRange where Bound == Double {
-    var random: Double {
+public extension ClosedRange where Bound == Double {
+    public var random: Double {
         return lowerBound + Double.random * (upperBound-lowerBound)
     }
 }
 
-extension Array {
-    var random: Element {
+public extension Array {
+    public var random: Element {
         return self[(0...count-1).random]
     }
     
-    func random(choosing numberElements: Int) -> [Element] {
+    public func random(choosing numberElements: Int) -> [Element] {
         guard numberElements < count else { return self }
         var indexes = Set<Int>()
         while indexes.count < numberElements {

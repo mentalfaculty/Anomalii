@@ -5,14 +5,14 @@
 //  Created by Drew McCormack on 14/11/2017.
 //
 
-enum Value {
+public enum Value {
     case scalar(Double)
     
-    enum Kind {
+    public enum Kind {
         case scalar
     }
     
-    var kind: Value.Kind {
+    public var kind: Value.Kind {
         switch self {
         case .scalar:
             return .scalar
