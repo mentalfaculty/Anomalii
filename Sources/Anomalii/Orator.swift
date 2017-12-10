@@ -31,7 +31,7 @@ class Orator {
         } else {
             switch (0...1).random {
             case 0:
-                e = Constant(doubleValue: (-10.0...10.0).random)
+                e = ScalarConstant(doubleValue: (-10.0...10.0).random)
             case 1:
                 e = variables.random
             default:

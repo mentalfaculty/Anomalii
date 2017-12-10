@@ -22,6 +22,12 @@ public protocol Expression: Codable, CustomStringConvertible {
     func isSame(as other: Expression) -> Bool
 }
 
+public extension Expression {
+    static var codingKey: String {
+        return String(describing: self)
+    }
+}
+
 internal struct AnyExpression: Codable {
     var expression: Expression
     

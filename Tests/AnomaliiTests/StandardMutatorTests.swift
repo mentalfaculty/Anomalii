@@ -10,15 +10,15 @@ import XCTest
 
 class StandardMutatorTests: XCTestCase {
     
-    let mutator = StandardMutator(variables: [Variable(named: "x")])
+    let mutator = StandardMutator(variables: [ScalarVariable(named: "x")])
     var e1, e2: Expression!
     
     override func setUp() {
         super.setUp()
         
-        let sub1 = ScalarAddition(withChildren: [Constant(doubleValue: 10), Constant(doubleValue: 5)])
-        e1 = ScalarAddition(withChildren: [sub1, Constant(doubleValue: 4)])
-        e2 = ScalarAddition(withChildren: [Constant(doubleValue: 2), Constant(doubleValue: 3)])
+        let sub1 = ScalarAddition(withChildren: [ScalarConstant(doubleValue: 10), ScalarConstant(doubleValue: 5)])
+        e1 = ScalarAddition(withChildren: [sub1, ScalarConstant(doubleValue: 4)])
+        e2 = ScalarAddition(withChildren: [ScalarConstant(doubleValue: 2), ScalarConstant(doubleValue: 3)])
     }
     
     func testCrossing() {

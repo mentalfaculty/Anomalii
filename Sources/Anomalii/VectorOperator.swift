@@ -1,11 +1,15 @@
 //
-//  ScalarOperator.swift
+//  VectorOperator.swift
 //  Anomalii
 //
-//  Created by Drew McCormack on 14/11/2017.
+//  Created by Drew McCormack on 05/12/2017.
 //
 
-struct ScalarAddition: BinaryOperator, ScalarValued {
+import Foundation
+
+struct VectorAddition: BinaryOperator {
+    static var inputTypes: [Value.Kind] { return [.vector, .vector] }
+    static var outputType: Value.Kind { return .vector }
     var children: [Expression]
     
     init(withChildren children: [Expression]) {
@@ -23,7 +27,9 @@ struct ScalarAddition: BinaryOperator, ScalarValued {
     }
 }
 
-struct ScalarMultiplication: BinaryOperator, ScalarValued {
+struct DotProduct: BinaryOperator {
+    static var inputTypes: [Value.Kind] { return [.vector, .vector] }
+    static var outputType: Value.Kind { return .scalar }
     var children: [Expression]
     
     init(withChildren children: [Expression]) {
@@ -33,10 +39,10 @@ struct ScalarMultiplication: BinaryOperator, ScalarValued {
     func evaluated(for valuesByString: [String:Value]) -> Value {
         let first = children[0].evaluated(for: valuesByString)
         let second = children[1].evaluated(for: valuesByString)
-        return first * second
+        return Value.dotProduct(first, second)
     }
     
     var description: String {
-        return "(\(children.first!) * \(children.last!))"
+        return "(\(children.first!) . \(children.last!))"
     }
 }

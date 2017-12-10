@@ -14,7 +14,7 @@ class OratorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        orator = Orator(variables: [Variable(named: "x")], maximumDepth: 2)
+        orator = Orator(variables: [ScalarVariable(named: "x")], maximumDepth: 2)
     }
     
     func testOration() {

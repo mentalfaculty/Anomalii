@@ -7,15 +7,19 @@
 
 public enum Value {
     case scalar(Double)
+    case vector([Double])
     
     public enum Kind {
         case scalar
+        case vector
     }
     
     public var kind: Value.Kind {
         switch self {
         case .scalar:
             return .scalar
+        case .vector:
+            return .vector
         }
     }
     
@@ -23,6 +27,10 @@ public enum Value {
         switch (left, right) {
         case let (.scalar(l), .scalar(r)):
             return .scalar(l+r)
+        case let (.vector(l), .vector(r)):
+            return .vector(zip(l, r).map({ (l,r) in l+r }))
+        case (.scalar, .vector), (.vector, .scalar):
+            fatalError()
         }
     }
     
@@ -30,6 +38,19 @@ public enum Value {
         switch (left, right) {
         case let (.scalar(l), .scalar(r)):
             return .scalar(l*r)
+        case let (.vector(l), .vector(r)):
+            return .vector(zip(l, r).map({ (l,r) in l*r }))
+        case (.scalar, .vector), (.vector, .scalar):
+            fatalError()
+        }
+    }
+    
+    static func dotProduct(_ left: Value, _ right: Value) -> Value {
+        switch (left, right) {
+        case let (.vector(l), .vector(r)):
+            return .scalar(zip(l, r).reduce(0.0, { (sum, pair) in sum + pair.0*pair.1 }))
+        case (.scalar, .scalar), (.scalar, .vector), (.vector, .scalar):
+            fatalError()
         }
     }
 }

@@ -16,8 +16,8 @@ class CodableTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        expressionTypes = [ScalarAddition.self, ScalarMultiplication.self, Constant.self, Variable.self]
-        expression = ScalarAddition(withChildren: [Constant(doubleValue: 10), Constant(doubleValue: 5)])
+        expressionTypes = [ScalarAddition.self, ScalarMultiplication.self, ScalarConstant.self, ScalarVariable.self]
+        expression = ScalarAddition(withChildren: [ScalarConstant(doubleValue: 10), ScalarConstant(doubleValue: 5)])
     }
     
     func testEncodeAndDecode() {

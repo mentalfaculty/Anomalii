@@ -20,8 +20,8 @@ class RegressionTests: XCTestCase, FitnessEvaluator {
         x = (-5...5).map { Double($0) }
         y = x.map { $0*$0 + $0 + Double.random }
         var config = Solver.Configuration()
-        config.populatorConstraints.maximumDepth = 8
-        config.populatorConstraints.populationSize = 50
+        config.populationConstraints.maximumDepth = 8
+        config.populationConstraints.populationSize = 50
         solver = Solver(configuration: config, fitnessEvaluator: self)
     }
     

@@ -22,6 +22,12 @@
 
 /* Begin PBXBuildFile section */
 		071BC7811FC8A4E6004C6582 /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BC7801FC8A4E6004C6582 /* CodableTests.swift */; };
+		0730A90C1FDD999D00A48515 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0730A90B1FDD999D00A48515 /* Variable.swift */; };
+		0730A90D1FDD999D00A48515 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0730A90B1FDD999D00A48515 /* Variable.swift */; };
+		0730A90F1FDD99A900A48515 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0730A90E1FDD99A900A48515 /* Constant.swift */; };
+		0730A9101FDD99A900A48515 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0730A90E1FDD99A900A48515 /* Constant.swift */; };
+		0730A9121FDD9ADC00A48515 /* VectorValued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0730A9111FDD9ADC00A48515 /* VectorValued.swift */; };
+		0730A9131FDD9ADC00A48515 /* VectorValued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0730A9111FDD9ADC00A48515 /* VectorValued.swift */; };
 		07661FF71FC9B33A004FF591 /* OratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07661FF61FC9B33A004FF591 /* OratorTests.swift */; };
 		07661FF91FCB1DD6004FF591 /* PopulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07661FF81FCB1DD6004FF591 /* PopulatorTests.swift */; };
 		07661FFB1FCB1FF8004FF591 /* StandardMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07661FFA1FCB1FF8004FF591 /* StandardMutatorTests.swift */; };
@@ -32,8 +38,8 @@
 		07ACFAC51FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
 		07ACFAC71FBB847F00197723 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC61FBB847F00197723 /* Operator.swift */; };
 		07ACFAC81FBB847F00197723 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC61FBB847F00197723 /* Operator.swift */; };
-		07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* Scalar.swift */; };
-		07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* Scalar.swift */; };
+		07ACFACA1FBB84AD00197723 /* ScalarValued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* ScalarValued.swift */; };
+		07ACFACB1FBB84AD00197723 /* ScalarValued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* ScalarValued.swift */; };
 		07ACFACD1FBB84CE00197723 /* ScalarOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */; };
 		07ACFACE1FBB84CE00197723 /* ScalarOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */; };
 		07ACFAD01FBB84F300197723 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFACF1FBB84F300197723 /* Terminal.swift */; };
@@ -52,6 +58,7 @@
 		07ACFAE31FBB85DC00197723 /* Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE11FBB85DC00197723 /* Solver.swift */; };
 		07ACFAE51FBB861400197723 /* Evolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE41FBB861400197723 /* Evolver.swift */; };
 		07ACFAE61FBB861400197723 /* Evolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAE41FBB861400197723 /* Evolver.swift */; };
+		07ECE7211FD7243700A04770 /* VectorOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE7201FD7243700A04770 /* VectorOperator.swift */; };
 		OBJ_21 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_27 /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ExpressionTests.swift */; };
 		OBJ_29 /* Anomalii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Anomalii::Anomalii::Product" /* Anomalii.framework */; };
@@ -77,6 +84,9 @@
 
 /* Begin PBXFileReference section */
 		071BC7801FC8A4E6004C6582 /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
+		0730A90B1FDD999D00A48515 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
+		0730A90E1FDD99A900A48515 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		0730A9111FDD9ADC00A48515 /* VectorValued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorValued.swift; sourceTree = "<group>"; };
 		07661FF61FC9B33A004FF591 /* OratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OratorTests.swift; sourceTree = "<group>"; };
 		07661FF81FCB1DD6004FF591 /* PopulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulatorTests.swift; sourceTree = "<group>"; };
 		07661FFA1FCB1FF8004FF591 /* StandardMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMutatorTests.swift; sourceTree = "<group>"; };
@@ -84,7 +94,7 @@
 		076C08221FBDFB33007668CB /* Traversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traversal.swift; sourceTree = "<group>"; };
 		07ACFAC31FBB846300197723 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		07ACFAC61FBB847F00197723 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
-		07ACFAC91FBB84AD00197723 /* Scalar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalar.swift; sourceTree = "<group>"; };
+		07ACFAC91FBB84AD00197723 /* ScalarValued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalarValued.swift; sourceTree = "<group>"; };
 		07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalarOperator.swift; sourceTree = "<group>"; };
 		07ACFACF1FBB84F300197723 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
 		07ACFAD21FBB851D00197723 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
@@ -94,6 +104,7 @@
 		07ACFADE1FBB85BF00197723 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		07ACFAE11FBB85DC00197723 /* Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solver.swift; sourceTree = "<group>"; };
 		07ACFAE41FBB861400197723 /* Evolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evolver.swift; sourceTree = "<group>"; };
+		07ECE7201FD7243700A04770 /* VectorOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorOperator.swift; sourceTree = "<group>"; };
 		"Anomalii::Anomalii::Product" /* Anomalii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Anomalii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Anomalii::AnomaliiTests::Product" /* AnomaliiTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnomaliiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* ExpressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionTests.swift; sourceTree = "<group>"; };
@@ -179,9 +190,13 @@
 				07ACFAC31FBB846300197723 /* Expression.swift */,
 				076C08221FBDFB33007668CB /* Traversal.swift */,
 				07ACFAC61FBB847F00197723 /* Operator.swift */,
-				07ACFAC91FBB84AD00197723 /* Scalar.swift */,
+				07ACFAC91FBB84AD00197723 /* ScalarValued.swift */,
+				0730A9111FDD9ADC00A48515 /* VectorValued.swift */,
 				07ACFACC1FBB84CE00197723 /* ScalarOperator.swift */,
+				07ECE7201FD7243700A04770 /* VectorOperator.swift */,
 				07ACFACF1FBB84F300197723 /* Terminal.swift */,
+				0730A90E1FDD99A900A48515 /* Constant.swift */,
+				0730A90B1FDD999D00A48515 /* Variable.swift */,
 				07ACFAD51FBB854400197723 /* Orator.swift */,
 				07ACFAD81FBB856800197723 /* Populator.swift */,
 				07ACFADB1FBB859400197723 /* Mutator.swift */,
@@ -278,7 +293,10 @@
 				07ACFAD61FBB854400197723 /* Orator.swift in Sources */,
 				OBJ_21 /* Package.swift in Sources */,
 				07ACFAE21FBB85DC00197723 /* Solver.swift in Sources */,
-				07ACFACA1FBB84AD00197723 /* Scalar.swift in Sources */,
+				0730A90F1FDD99A900A48515 /* Constant.swift in Sources */,
+				07ACFACA1FBB84AD00197723 /* ScalarValued.swift in Sources */,
+				0730A90C1FDD999D00A48515 /* Variable.swift in Sources */,
+				0730A9121FDD9ADC00A48515 /* VectorValued.swift in Sources */,
 				076C08231FBDFB33007668CB /* Traversal.swift in Sources */,
 				07ACFAD31FBB851D00197723 /* Value.swift in Sources */,
 				07ACFAD91FBB856800197723 /* Populator.swift in Sources */,
@@ -310,9 +328,10 @@
 			buildActionMask = 0;
 			files = (
 				07ACFAD71FBB854400197723 /* Orator.swift in Sources */,
+				0730A9101FDD99A900A48515 /* Constant.swift in Sources */,
 				OBJ_36 /* Anomalii.swift in Sources */,
 				07ACFAE31FBB85DC00197723 /* Solver.swift in Sources */,
-				07ACFACB1FBB84AD00197723 /* Scalar.swift in Sources */,
+				07ACFACB1FBB84AD00197723 /* ScalarValued.swift in Sources */,
 				076C08241FBDFB33007668CB /* Traversal.swift in Sources */,
 				07ACFAD41FBB851D00197723 /* Value.swift in Sources */,
 				07ACFADA1FBB856800197723 /* Populator.swift in Sources */,
@@ -322,7 +341,10 @@
 				07ACFADD1FBB859400197723 /* Mutator.swift in Sources */,
 				07ACFAE61FBB861400197723 /* Evolver.swift in Sources */,
 				07ACFACE1FBB84CE00197723 /* ScalarOperator.swift in Sources */,
+				07ECE7211FD7243700A04770 /* VectorOperator.swift in Sources */,
 				07ACFAE01FBB85BF00197723 /* Random.swift in Sources */,
+				0730A9131FDD9ADC00A48515 /* VectorValued.swift in Sources */,
+				0730A90D1FDD999D00A48515 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
