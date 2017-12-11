@@ -7,14 +7,19 @@
 
 import Foundation
 
+public struct PopulationComponents {
+    public var operatorTypes: [Expression.Type] = [ScalarAddition.self, ScalarMultiplication.self]
+    public var constantTypes: [Constant.Type] = [ScalarConstant.self]
+    public var variables: [Variable] = [ScalarVariable(named: "x")]
+    public var memberValueKind: Value.Kind = .scalar
+    public let constantRange: ClosedRange<Double> = -10...10
+    public init() {}
+}
+
 public class Solver {
     public struct Configuration {
-        public var operatorTypes: [Expression.Type] = [ScalarAddition.self, ScalarMultiplication.self]
-        public var constantTypes: [Constant.Type] = [ScalarConstant.self]
-        public var variables: [Variable] = [ScalarVariable(named: "x")]
-        public var evaluationValueKind: Value.Kind = .scalar
-        public var constraintsForRandomExpressions = ExpressionConstraints(constantRange: -10...10)
-        public var populationConstraints = Populator.Constraints()
+        public var populationComponents: PopulationComponents = PopulationComponents()
+        public var populationMetrics = Populator.Metrics()
         public init() {}
     }
     
@@ -34,8 +39,8 @@ public class Solver {
     public init(configuration: Configuration, fitnessEvaluator: FitnessEvaluator) {
         self.configuration = configuration
         self.fitnessEvaluator = fitnessEvaluator
-        self.mutator = StandardMutator(variables: configuration.variables)
-        self.populator = Populator(withConstraints: configuration.populationConstraints, variables: configuration.variables)
+        self.mutator = StandardMutator(variables: configuration.populationComponents.variables)
+        self.populator = Populator(withMetrics: configuration.populationMetrics, variables: configuration.populationComponents.variables)
         self.initialPopulation = populator.makePopulation()
         self.evolver = Evolver(initialPopulation: initialPopulation, evaluatingFitnessWith: fitnessEvaluator, mutatingWith: mutator)
     }

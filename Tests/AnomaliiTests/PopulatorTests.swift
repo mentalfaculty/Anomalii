@@ -14,8 +14,8 @@ class PopulatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let constraints = Populator.Constraints(populationSize: 10, maximumDepth: 5)
-        populator = Populator(withConstraints: constraints, variables: [ScalarVariable(named: "x")])
+        let metrics = Populator.Metrics(populationSize: 10, maximumDepth: 5)
+        populator = Populator(withMetrics: metrics, variables: [ScalarVariable(named: "x")])
     }
     
     func testDepth() {

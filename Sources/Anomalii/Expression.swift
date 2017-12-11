@@ -5,10 +5,6 @@
 //  Created by Drew McCormack on 14/11/2017.
 //
 
-public struct ExpressionConstraints {
-    public let constantRange: ClosedRange<Double>
-}
-
 public protocol Expression: Codable, CustomStringConvertible {
     static var codingKey: String { get }
     static var outputType: Value.Kind { get }
