@@ -11,16 +11,16 @@ protocol Mutator: class {
 }
 
 class StandardMutator: Mutator {
-    let variables: [Variable]
+    let components: PopulationComponents
     
-    init(variables: [Variable]) {
-        self.variables = variables
+    init(populationComponents: PopulationComponents) {
+        self.components = populationComponents
     }
     
     func expression(mutating expression: Expression) -> Expression {
         // Implement as a cross with a random expression
-        let orator = Orator(variables: variables, maximumDepth: expression.depth)
-        let other = orator.expression(withOutputType: .scalar)
+        let orator = Orator(withComponents: components, maximumDepth: expression.depth)
+        let other = orator.expression(withOutputValueKind: .scalar)
         return self.expression(crossing: expression, with: other)
     }
     

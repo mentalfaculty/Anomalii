@@ -14,11 +14,13 @@ class OratorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        orator = Orator(variables: [ScalarVariable(named: "x")], maximumDepth: 2)
+        var components = PopulationComponents()
+        components.variables = [ScalarVariable(named: "x")]
+        orator = Orator(withComponents: components, maximumDepth: 2)
     }
     
     func testOration() {
-        let expression = orator.expression(withOutputType: .scalar)
+        let expression = orator.expression(withOutputValueKind: .scalar)
         XCTAssertEqual(expression.depth, 2)
     }
     

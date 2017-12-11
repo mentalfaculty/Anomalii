@@ -20,19 +20,19 @@ public class Populator {
     }
     
     public let metrics: Metrics
-    public let variables: [Variable]
+    public let components: PopulationComponents
     private let orator: Orator
     
-    public init(withMetrics metrics: Metrics, variables: [Variable]) {
+    public init(withMetrics metrics: Metrics, components: PopulationComponents) {
         self.metrics = metrics
-        self.variables = variables
-        self.orator = Orator(variables: variables, maximumDepth: metrics.maximumDepth)
+        self.components = components
+        self.orator = Orator(withComponents: components, maximumDepth: metrics.maximumDepth)
     }
     
     public func makePopulation() -> [Expression] {
         var population = [Expression]()
         for _ in 0..<metrics.populationSize {
-            let expression = orator.expression(withOutputType: .scalar)
+            let expression = orator.expression(withOutputValueKind: components.memberValueKind)
             population.append(expression)
         }
         return population

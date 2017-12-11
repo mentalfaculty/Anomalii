@@ -9,14 +9,14 @@ enum OperatorCodingKey: String, CodingKey {
     case children
 }
 
-protocol Operator: Expression {
+public protocol Operator: Expression {
     static var inputTypes: [Value.Kind] { get }
     var children: [Expression] { get set }
     init(withChildren children: [Expression])
 }
 
-extension Operator {
-    static var arity: Int { return inputTypes.count }
+public extension Operator {
+    public static var arity: Int { return inputTypes.count }
     
     var depth: Int {
         return 1 + children.reduce(0) { max($1.depth, $0) }

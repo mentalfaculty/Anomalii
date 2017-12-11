@@ -10,11 +10,14 @@ import XCTest
 
 class StandardMutatorTests: XCTestCase {
     
-    let mutator = StandardMutator(variables: [ScalarVariable(named: "x")])
+    var mutator: StandardMutator!
     var e1, e2: Expression!
     
     override func setUp() {
         super.setUp()
+        
+        let components = PopulationComponents()
+        mutator = StandardMutator(populationComponents: components)
         
         let sub1 = ScalarAddition(withChildren: [ScalarConstant(doubleValue: 10), ScalarConstant(doubleValue: 5)])
         e1 = ScalarAddition(withChildren: [sub1, ScalarConstant(doubleValue: 4)])

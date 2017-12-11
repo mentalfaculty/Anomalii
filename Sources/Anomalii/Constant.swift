@@ -17,6 +17,10 @@ public struct ScalarConstant: Constant, ScalarValued {
         self.doubleValue = doubleValue
     }
     
+    init(randomWithValuesIn range: ClosedRange<Double>) {
+        self.doubleValue = range.random
+    }
+    
     enum Key: String, CodingKey {
         case doubleValue
     }
@@ -48,6 +52,10 @@ public struct VectorConstant: Constant, VectorValued {
 
     init(vectorValue: [Double]) {
         self.vectorValue = vectorValue
+    }
+    
+    public init(randomWithValuesIn range: ClosedRange<Double>, length: Int) {
+        self.vectorValue = (0..<length).map { _ in range.random }
     }
     
     enum Key: String, CodingKey {
