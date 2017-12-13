@@ -8,8 +8,8 @@
 import Foundation
 
 struct VectorAddition: BinaryOperator {
-    static var inputTypes: [Value.Kind] { return [.vector, .vector] }
-    static var outputType: Value.Kind { return .vector }
+    static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
+    static var outputValueKind: Value.Kind { return .vector }
     var children: [Expression]
     
     init(withChildren children: [Expression]) {
@@ -28,8 +28,8 @@ struct VectorAddition: BinaryOperator {
 }
 
 struct DotProduct: BinaryOperator {
-    static var inputTypes: [Value.Kind] { return [.vector, .vector] }
-    static var outputType: Value.Kind { return .scalar }
+    static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
+    static var outputValueKind: Value.Kind { return .scalar }
     var children: [Expression]
     
     init(withChildren children: [Expression]) {

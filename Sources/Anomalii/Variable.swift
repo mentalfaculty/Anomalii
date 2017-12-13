@@ -13,7 +13,7 @@ public protocol Variable: Terminal {
 
 public struct ScalarVariable: Variable, ScalarValued {
     public let name: String
-    public static let outputType: Value.Kind = .scalar
+    public static let outputValueKind: Value.Kind = .scalar
     
     public init(named name: String) {
         self.name = name
@@ -49,7 +49,7 @@ public struct ScalarVariable: Variable, ScalarValued {
 
 public struct VectorVariable: Variable, VectorValued {
     public let name: String
-    public static let outputType: Value.Kind = .vector
+    public static let outputValueKind: Value.Kind = .vector
     
     public init(named name: String) {
         self.name = name

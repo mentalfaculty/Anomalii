@@ -11,9 +11,9 @@ public protocol VectorValued: Expression {
 }
 
 extension VectorValued {
-    public static var outputType: Value.Kind { return .vector }
+    public static var outputValueKind: Value.Kind { return .vector }
 }
 
 extension VectorValued where Self: BinaryOperator {
-    static var inputTypes: [Value.Kind] { return [.vector, .vector] }
+    static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
 }

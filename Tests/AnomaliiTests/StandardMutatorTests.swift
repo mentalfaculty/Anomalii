@@ -25,13 +25,13 @@ class StandardMutatorTests: XCTestCase {
     }
     
     func testCrossing() {
-        let crossed = mutator.expression(crossing: e1, with: e2)
+        let crossed = mutator.expression(crossing: e1, with: e2)!
         XCTAssertLessThanOrEqual(crossed.depth, 4)
         XCTAssertFalse(e1.isSame(as: crossed) && e2.isSame(as: crossed))
     }
 
     func testMutating() {
-        let mutated = mutator.expression(mutating: e1)
+        let mutated = mutator.expression(mutating: e1)!
         XCTAssertLessThanOrEqual(mutated.depth, 6)
         XCTAssertFalse(e1.isSame(as: mutated))
     }

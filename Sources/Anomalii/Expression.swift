@@ -7,7 +7,7 @@
 
 public protocol Expression: Codable, CustomStringConvertible {
     static var codingKey: String { get }
-    static var outputType: Value.Kind { get }
+    static var outputValueKind: Value.Kind { get }
     static var arity: Int { get }
     var isValid: Bool { get }
     var depth: Int { get }

@@ -54,19 +54,25 @@ class Evolver {
         // Crossover is used for 90%. We do tournaments of 3 randomly chosen contestants for each tournament.
         let tournamentSize = 3
         let numberCrossover = populationSize.portioned(percentage: 90)
-        for _ in 0..<numberCrossover {
+        var crossoverCount = 0
+        while crossoverCount < numberCrossover {
             let firstWinner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
             let secondWinner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
-            let crossedExpression = mutator.expression(crossing: firstWinner, with: secondWinner)
-            newPopulation.append(crossedExpression)
+            if let crossedExpression = mutator.expression(crossing: firstWinner, with: secondWinner) {
+                newPopulation.append(crossedExpression)
+                crossoverCount += 1
+            }
         }
         
         // Remainder get mutated
         let numberOfMutated = populationSize - numberElites - numberSemiElites - numberCrossover
-        for _ in 0..<numberOfMutated {
+        var mutatedCount = 0
+        while mutatedCount < numberOfMutated {
             let winner = fitnessResults.random(choosing: tournamentSize).max(by:{ $0.fitness < $1.fitness })!.expression
-            let mutatedExpression = mutator.expression(mutating: winner)
-            newPopulation.append(mutatedExpression)
+            if let mutatedExpression = mutator.expression(mutating: winner) {
+                newPopulation.append(mutatedExpression)
+                mutatedCount += 1
+            }
         }
         
         population = newPopulation

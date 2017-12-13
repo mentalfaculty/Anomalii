@@ -10,13 +10,13 @@ enum OperatorCodingKey: String, CodingKey {
 }
 
 public protocol Operator: Expression {
-    static var inputTypes: [Value.Kind] { get }
+    static var inputValueKinds: [Value.Kind] { get }
     var children: [Expression] { get set }
     init(withChildren children: [Expression])
 }
 
 public extension Operator {
-    public static var arity: Int { return inputTypes.count }
+    public static var arity: Int { return inputValueKinds.count }
     
     var depth: Int {
         return 1 + children.reduce(0) { max($1.depth, $0) }
@@ -49,7 +49,7 @@ public extension Operator {
     
     var isValid: Bool {
         return children.enumerated().reduce(true) { result, indexChild in
-            return result && type(of: indexChild.1).outputType == Self.inputTypes[indexChild.0]
+            return result && type(of: indexChild.1).outputValueKind == Self.inputValueKinds[indexChild.0]
         }
     }
     

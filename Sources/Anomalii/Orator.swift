@@ -23,16 +23,16 @@ class Orator {
         currentDepth += 1
         defer { currentDepth -= 1 }
         if currentDepth < maximumDepth {
-            let candidates = components.operatorTypes.filter { outputKind == $0.outputType }
+            let candidates = components.operatorTypes.filter { outputKind == $0.outputValueKind }
             let op = candidates.random
-            let children = op.inputTypes.map {
+            let children = op.inputValueKinds.map {
                 expression(withOutputValueKind: $0)
             }
             e = op.init(withChildren: children)
         } else {
             switch (0...1).random {
             case 0:
-                let candidates = components.constantTypes.filter { outputKind == $0.outputType }
+                let candidates = components.constantTypes.filter { outputKind == $0.outputValueKind }
                 let constantType = candidates.random
                 switch constantType {
                 case is ScalarConstant.Type:
