@@ -48,38 +48,41 @@ public struct ScalarConstant: Constant, ScalarValued {
 }
 
 public struct VectorConstant: Constant, VectorValued {
-    let vectorValue: [Double]
+    let elementValue: Double
 
-    init(vectorValue: [Double]) {
-        self.vectorValue = vectorValue
+    init(elementValue: Double) {
+        self.elementValue = elementValue
     }
     
-    public init(randomWithValuesIn range: ClosedRange<Double>, length: Int) {
-        self.vectorValue = (0..<length).map { _ in range.random }
+    public init(randomWithValuesIn range: ClosedRange<Double>) {
+        self.elementValue = range.random
     }
     
     enum Key: String, CodingKey {
-        case vectorValue
+        case elementValue
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Key.self)
-        vectorValue = try values.decode([Double].self, forKey: .vectorValue)
+        elementValue = try values.decode(Double.self, forKey: .elementValue)
     }
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Key.self)
-        try container.encode(vectorValue, forKey: .vectorValue)
+        try container.encode(elementValue, forKey: .elementValue)
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value { return .vector(vectorValue) }
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
+        let vectorValue = [Double](repeating: value, count: length)
+        return .vector(vectorValue)
+    }
     
     public func isSame(as other: Expression) -> Bool {
         guard let otherConstant = other as? VectorConstant else { return false }
-        return vectorValue == otherConstant.vectorValue
+        return elementValue == otherConstant.elementValue
     }
     
     public var description: String {
-        return "\(vectorValue)"
+        return "[\(elementValue)]"
     }
 }

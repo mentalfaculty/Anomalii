@@ -12,6 +12,6 @@ public extension ScalarValued {
     public static var outputValueKind: Value.Kind { return .scalar }
 }
 
-extension ScalarValued where Self: BinaryOperator {
+public extension ScalarValued where Self: BinaryOperator {
     static var inputValueKinds: [Value.Kind] { return [.scalar, .scalar] }
 }

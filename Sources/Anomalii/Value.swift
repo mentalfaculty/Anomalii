@@ -40,8 +40,10 @@ public enum Value {
             return .scalar(l*r)
         case let (.vector(l), .vector(r)):
             return .vector(zip(l, r).map({ (l,r) in l*r }))
-        case (.scalar, .vector), (.vector, .scalar):
-            fatalError()
+        case let (.scalar(s), .vector(v)):
+            return .vector(v.map({ $0 * s }))
+        case let (.vector(v), .scalar(s)):
+            return .vector(v.map({ $0 * s }))
         }
     }
     

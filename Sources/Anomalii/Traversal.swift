@@ -19,7 +19,7 @@ struct TraversalIndex {
 
 extension Expression {
     
-    func count(where condition: ((Expression)->Bool)?) -> Int {
+    public func count(where condition: ((Expression)->Bool)?) -> Int {
         var numberNodes = 0
         traverse(where: condition) { _ in numberNodes +=  1 }
         return numberNodes

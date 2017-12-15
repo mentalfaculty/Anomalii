@@ -61,5 +61,5 @@ public extension Operator {
     }
 }
 
-protocol BinaryOperator: Operator {
+public protocol BinaryOperator: Operator {
 }

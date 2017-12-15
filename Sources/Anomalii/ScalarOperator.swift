@@ -5,38 +5,38 @@
 //  Created by Drew McCormack on 14/11/2017.
 //
 
-struct ScalarAddition: BinaryOperator, ScalarValued {
-    var children: [Expression]
+public struct ScalarAddition: BinaryOperator, ScalarValued {
+    public var children: [Expression]
     
-    init(withChildren children: [Expression]) {
+    public init(withChildren children: [Expression]) {
         self.children = children
     }
     
-    func evaluated(for valuesByString: [String:Value]) -> Value {
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
         let first = children[0].evaluated(for: valuesByString)
         let second = children[1].evaluated(for: valuesByString)
         return first + second
     }
     
-    var description: String {
+    public var description: String {
         return "(\(children.first!) + \(children.last!))"
     }
 }
 
-struct ScalarMultiplication: BinaryOperator, ScalarValued {
-    var children: [Expression]
+public struct ScalarMultiplication: BinaryOperator, ScalarValued {
+    public var children: [Expression]
     
-    init(withChildren children: [Expression]) {
+    public init(withChildren children: [Expression]) {
         self.children = children
     }
     
-    func evaluated(for valuesByString: [String:Value]) -> Value {
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
         let first = children[0].evaluated(for: valuesByString)
         let second = children[1].evaluated(for: valuesByString)
         return first * second
     }
     
-    var description: String {
+    public var description: String {
         return "(\(children.first!) * \(children.last!))"
     }
 }

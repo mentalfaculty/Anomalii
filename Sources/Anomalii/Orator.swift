@@ -38,7 +38,7 @@ class Orator {
                 case is ScalarConstant.Type:
                     e = ScalarConstant(randomWithValuesIn: components.constantRange)
                 case is VectorConstant.Type:
-                    e = VectorConstant(randomWithValuesIn: components.constantRange, length: components.vectorLength)
+                    e = VectorConstant(randomWithValuesIn: components.constantRange)
                 default:
                     fatalError()
                 }

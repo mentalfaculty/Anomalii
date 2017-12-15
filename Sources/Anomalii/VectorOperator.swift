@@ -7,42 +7,62 @@
 
 import Foundation
 
-struct VectorAddition: BinaryOperator {
-    static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
-    static var outputValueKind: Value.Kind { return .vector }
-    var children: [Expression]
+public struct VectorAddition: BinaryOperator {
+    public static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
+    public static var outputValueKind: Value.Kind { return .vector }
+    public var children: [Expression]
     
-    init(withChildren children: [Expression]) {
+    public init(withChildren children: [Expression]) {
         self.children = children
     }
     
-    func evaluated(for valuesByString: [String:Value]) -> Value {
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
         let first = children[0].evaluated(for: valuesByString)
         let second = children[1].evaluated(for: valuesByString)
         return first + second
     }
     
-    var description: String {
+    public var description: String {
         return "(\(children.first!) + \(children.last!))"
     }
 }
 
-struct DotProduct: BinaryOperator {
-    static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
-    static var outputValueKind: Value.Kind { return .scalar }
-    var children: [Expression]
+public struct ScalarVectorMultiplication: BinaryOperator {
+    public static var inputValueKinds: [Value.Kind] { return [.scalar, .vector] }
+    public static var outputValueKind: Value.Kind { return .vector }
+    public var children: [Expression]
     
-    init(withChildren children: [Expression]) {
+    public init(withChildren children: [Expression]) {
         self.children = children
     }
     
-    func evaluated(for valuesByString: [String:Value]) -> Value {
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
+        let first = children[0].evaluated(for: valuesByString)
+        let second = children[1].evaluated(for: valuesByString)
+        return first * second
+    }
+    
+    public var description: String {
+        return "(\(children.first!) * \(children.last!))"
+    }
+}
+
+public struct DotProduct: BinaryOperator {
+    public static var inputValueKinds: [Value.Kind] { return [.vector, .vector] }
+    public static var outputValueKind: Value.Kind { return .scalar }
+    public var children: [Expression]
+    
+    public init(withChildren children: [Expression]) {
+        self.children = children
+    }
+    
+    public func evaluated(for valuesByString: [String:Value]) -> Value {
         let first = children[0].evaluated(for: valuesByString)
         let second = children[1].evaluated(for: valuesByString)
         return Value.dotProduct(first, second)
     }
     
-    var description: String {
+    public var description: String {
         return "(\(children.first!) . \(children.last!))"
     }
 }
