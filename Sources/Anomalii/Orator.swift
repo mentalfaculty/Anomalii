@@ -18,34 +18,38 @@ class Orator {
         self.maximumDepth = maximumDepth
     }
     
-    func expression(withOutputValueKind outputKind: Value.Kind) -> Expression {
-        var e: Expression
+    func expression(withOutputValueKind outputKind: Value.Kind) -> Expression? {
+        var e: Expression?
         currentDepth += 1
         defer { currentDepth -= 1 }
         if currentDepth < maximumDepth {
             let candidates = components.operatorTypes.filter { outputKind == $0.outputValueKind }
-            let op = candidates.random
-            let children = op.inputValueKinds.map {
+            guard let op = candidates.random else { return nil }
+            let children = op.inputValueKinds.flatMap {
                 expression(withOutputValueKind: $0)
             }
+            guard children.count == op.inputValueKinds.count else { return nil }
             e = op.init(withChildren: children)
         } else {
-            switch (0...1).random {
-            case 0:
-                let candidates = components.constantTypes.filter { outputKind == $0.outputValueKind }
-                let constantType = candidates.random
-                switch constantType {
-                case is ScalarConstant.Type:
-                    e = ScalarConstant(randomWithValuesIn: components.constantRange)
-                case is VectorConstant.Type:
-                    e = VectorConstant(randomWithValuesIn: components.constantRange)
+            e = repeatedlyAttemptToCreate() {
+                switch (0...1).random {
+                case 0:
+                    let candidates = components.constantTypes.filter { outputKind == $0.outputValueKind }
+                    let constantType = candidates.random
+                    switch constantType {
+                    case is ScalarConstant.Type:
+                        return ScalarConstant(randomWithValuesIn: components.constantRange)
+                    case is VectorConstant.Type:
+                        return VectorConstant(randomWithValuesIn: components.constantRange)
+                    default:
+                        fatalError()
+                    }
+                case 1:
+                    let candidates = components.variables.filter { outputKind == type(of: $0).outputValueKind }
+                    return candidates.random
                 default:
                     fatalError()
                 }
-            case 1:
-                e = components.variables.random
-            default:
-                fatalError()
             }
         }
         return e

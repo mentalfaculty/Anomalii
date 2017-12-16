@@ -14,6 +14,7 @@ class RegressionTests: XCTestCase, FitnessEvaluator {
     var y: [Double]!
     
     var solver: Solver!
+    var parameters = EvaluationParameters()
     
     override func setUp() {
         super.setUp()
@@ -28,7 +29,7 @@ class RegressionTests: XCTestCase, FitnessEvaluator {
     func testEvolution() {
         solver.evolve(generations: 100)
         let winner = solver.bestCandidate
-        let values = x.map { winner.evaluated(for: ["x":Value.scalar($0)]) }
+        let values = x.map { winner.evaluated(forVariableValuesByName: ["x":Value.scalar($0)], parameters: parameters) }
         for case let (yValue, .scalar(winnerY)) in zip(y, values) {
             XCTAssertEqual(winnerY, yValue, accuracy: 2.0)
         }
@@ -37,7 +38,7 @@ class RegressionTests: XCTestCase, FitnessEvaluator {
     func fitness(of expression: Expression) -> Double {
         let sumOfErrorSquares = zip(x,y).reduce(0.0) { (sum, xy) in
             let (x,y) = xy
-            if case let .scalar(expressionY) = expression.evaluated(for: ["x":.scalar(x)]) {
+            if case let .scalar(expressionY) = expression.evaluated(forVariableValuesByName: ["x":.scalar(x)], parameters: parameters) {
                 let diff = y - expressionY
                 return sum + diff * diff
             } else {

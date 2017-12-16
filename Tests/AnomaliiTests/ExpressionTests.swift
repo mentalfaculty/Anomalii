@@ -4,6 +4,7 @@ import XCTest
 class ExpressionTests: XCTestCase {
     
     var expression: Expression!
+    let parameters = EvaluationParameters()
     
     override func setUp() {
         super.setUp()
@@ -27,13 +28,13 @@ class ExpressionTests: XCTestCase {
     }
     
     func testEvaluation() {
-        guard case let .scalar(value) = expression.evaluated(for: [:]) else { XCTFail(); return }
+        guard case let .scalar(value) = expression.evaluated(forVariableValuesByName: [:], parameters: parameters) else { XCTFail(); return }
         XCTAssertEqual(value, 15.0)
     }
     
     func testEvaluationWithVariable() {
         let e = ScalarAddition(withChildren: [ScalarVariable(named: "tom"), ScalarConstant(doubleValue: 5)])
-        guard case let .scalar(value) = e.evaluated(for: ["tom":.scalar(-2)]) else { XCTFail(); return }
+        guard case let .scalar(value) = e.evaluated(forVariableValuesByName: ["tom":.scalar(-2)], parameters: parameters) else { XCTFail(); return }
         XCTAssertEqual(value, 3.0)
     }
     

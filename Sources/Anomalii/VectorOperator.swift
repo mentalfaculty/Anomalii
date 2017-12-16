@@ -16,9 +16,9 @@ public struct VectorAddition: BinaryOperator {
         self.children = children
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString)
-        let second = children[1].evaluated(for: valuesByString)
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        let first = children[0].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
+        let second = children[1].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
         return first + second
     }
     
@@ -36,9 +36,9 @@ public struct ScalarVectorMultiplication: BinaryOperator {
         self.children = children
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString)
-        let second = children[1].evaluated(for: valuesByString)
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        let first = children[0].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
+        let second = children[1].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
         return first * second
     }
     
@@ -56,9 +56,9 @@ public struct DotProduct: BinaryOperator {
         self.children = children
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString)
-        let second = children[1].evaluated(for: valuesByString)
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        let first = children[0].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
+        let second = children[1].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
         return Value.dotProduct(first, second)
     }
     

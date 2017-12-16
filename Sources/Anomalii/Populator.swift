@@ -31,8 +31,8 @@ public class Populator {
     
     public func makePopulation() -> [Expression] {
         var population = [Expression]()
-        for _ in 0..<metrics.populationSize {
-            let expression = orator.expression(withOutputValueKind: components.memberValueKind)
+        while population.count < metrics.populationSize {
+            guard let expression = orator.expression(withOutputValueKind: components.memberValueKind) else { continue }
             population.append(expression)
         }
         return population

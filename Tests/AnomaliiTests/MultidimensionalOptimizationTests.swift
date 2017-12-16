@@ -14,11 +14,13 @@ import Anomalii
 class MultidimensionalOptimizationTests: XCTestCase, FitnessEvaluator {
     
     var startingPoints: [[Double]]!
-    
     var solver: Solver!
+    var parameters = EvaluationParameters()
     
     override func setUp() {
         super.setUp()
+        
+        parameters.vectorLength = 2
         
         startingPoints = [[Double]]()
         for _ in 0..<20 {
@@ -30,26 +32,25 @@ class MultidimensionalOptimizationTests: XCTestCase, FitnessEvaluator {
         config.populationComponents.constantTypes = [ScalarConstant.self, VectorConstant.self]
         config.populationComponents.variables = [VectorVariable(named: "grad")]
         config.populationComponents.memberValueKind = .vector
-        config.populationComponents.vectorLength = 2
         config.populationComponents.operatorTypes = [DotProduct.self, VectorAddition.self, ScalarVectorMultiplication.self, ScalarAddition.self, ScalarMultiplication.self]
         config.populationMetrics.maximumDepth = 8
         config.populationMetrics.populationSize = 50
         
         solver = Solver(configuration: config, fitnessEvaluator: self)
     }
-    
-    func testEvolution() {
-        solver.evolve(generations: 100)
-//        let winner = solver.bestCandidate
-//        let values = x.map { winner.evaluated(for: ["x":Value.vector($0)]) }
-//        for case let (yValue, .scalar(winnerY)) in zip(y, values) {
-//            XCTAssertEqual(winnerY, yValue, accuracy: 2.0)
-//        }
-    }
+//    
+//    func testEvolution() {
+//        solver.evolve(generations: 100)
+////        let winner = solver.bestCandidate
+////        let values = x.map { winner.evaluated(for: ["x":Value.vector($0)]) }
+////        for case let (yValue, .scalar(winnerY)) in zip(y, values) {
+////            XCTAssertEqual(winnerY, yValue, accuracy: 2.0)
+////        }
+//    }
 
     func fitness(of expression: Expression) -> Double {
         let sumOfErrorSquares = startingPoints.reduce(0.0) { (sum, point) in
-            if case let .vector(step) = expression.evaluated(for: ["x":.vector(point)]) {
+            if case let .vector(step) = expression.evaluated(forVariableValuesByName: ["x":.vector(point)], parameters: parameters) {
                 let targetStep = point.map { -$0 } // Minimum is at (0,0)
                 let part = zip(step, targetStep).reduce(0.0) { sum, pair in
                     let diff = (pair.0 - pair.1)

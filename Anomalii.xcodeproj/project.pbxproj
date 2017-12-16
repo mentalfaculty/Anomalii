@@ -31,6 +31,7 @@
 		07661FFD1FD08979004FF591 /* RegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07661FFC1FD08979004FF591 /* RegressionTests.swift */; };
 		076C08241FBDFB33007668CB /* Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076C08221FBDFB33007668CB /* Traversal.swift */; };
 		0772621E1FE449E700AD7CB7 /* MultidimensionalOptimizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0772621D1FE449E700AD7CB7 /* MultidimensionalOptimizationTests.swift */; };
+		077B391E1FE5376000B648BE /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B391D1FE5376000B648BE /* General.swift */; };
 		07ACFAC51FBB846300197723 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC31FBB846300197723 /* Expression.swift */; };
 		07ACFAC81FBB847F00197723 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC61FBB847F00197723 /* Operator.swift */; };
 		07ACFACB1FBB84AD00197723 /* ScalarValued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACFAC91FBB84AD00197723 /* ScalarValued.swift */; };
@@ -78,6 +79,7 @@
 		07661FFC1FD08979004FF591 /* RegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionTests.swift; sourceTree = "<group>"; };
 		076C08221FBDFB33007668CB /* Traversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traversal.swift; sourceTree = "<group>"; };
 		0772621D1FE449E700AD7CB7 /* MultidimensionalOptimizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultidimensionalOptimizationTests.swift; sourceTree = "<group>"; };
+		077B391D1FE5376000B648BE /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		07ACFAC31FBB846300197723 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		07ACFAC61FBB847F00197723 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		07ACFAC91FBB84AD00197723 /* ScalarValued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalarValued.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				07ACFADB1FBB859400197723 /* Mutator.swift */,
 				07ACFAE41FBB861400197723 /* Evolver.swift */,
 				07ACFAE11FBB85DC00197723 /* Solver.swift */,
+				077B391D1FE5376000B648BE /* General.swift */,
 			);
 			name = Anomalii;
 			path = Sources/Anomalii;
@@ -316,6 +319,7 @@
 				07ECE7211FD7243700A04770 /* VectorOperator.swift in Sources */,
 				07ACFAE01FBB85BF00197723 /* Random.swift in Sources */,
 				0730A9131FDD9ADC00A48515 /* VectorValued.swift in Sources */,
+				077B391E1FE5376000B648BE /* General.swift in Sources */,
 				0730A90D1FDD999D00A48515 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,8 @@ public extension ClosedRange where Bound == Double {
 }
 
 public extension Array {
-    public var random: Element {
+    public var random: Element? {
+        guard count > 0 else { return nil }
         return self[(0...count-1).random]
     }
     

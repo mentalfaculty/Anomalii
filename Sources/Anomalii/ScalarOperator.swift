@@ -12,9 +12,9 @@ public struct ScalarAddition: BinaryOperator, ScalarValued {
         self.children = children
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString)
-        let second = children[1].evaluated(for: valuesByString)
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        let first = children[0].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
+        let second = children[1].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
         return first + second
     }
     
@@ -30,9 +30,9 @@ public struct ScalarMultiplication: BinaryOperator, ScalarValued {
         self.children = children
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        let first = children[0].evaluated(for: valuesByString)
-        let second = children[1].evaluated(for: valuesByString)
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        let first = children[0].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
+        let second = children[1].evaluated(forVariableValuesByName: valuesByName, parameters: parameters)
         return first * second
     }
     

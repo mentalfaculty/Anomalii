@@ -35,7 +35,9 @@ public struct ScalarConstant: Constant, ScalarValued {
         try container.encode(doubleValue, forKey: .doubleValue)
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value { return .scalar(doubleValue) }
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        return .scalar(doubleValue)
+    }
     
     public func isSame(as other: Expression) -> Bool {
         guard let otherConstant = other as? ScalarConstant else { return false }
@@ -72,8 +74,8 @@ public struct VectorConstant: Constant, VectorValued {
         try container.encode(elementValue, forKey: .elementValue)
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        let vectorValue = [Double](repeating: value, count: length)
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        let vectorValue = [Double](repeating: elementValue, count: parameters.vectorLength)
         return .vector(vectorValue)
     }
     

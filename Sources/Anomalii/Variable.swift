@@ -33,8 +33,8 @@ public struct ScalarVariable: Variable, ScalarValued {
         try container.encode(name, forKey: .name)
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        return valuesByString[name]!
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        return valuesByName[name]!
     }
     
     public func isSame(as other: Expression) -> Bool {
@@ -69,8 +69,8 @@ public struct VectorVariable: Variable, VectorValued {
         try container.encode(name, forKey: .name)
     }
     
-    public func evaluated(for valuesByString: [String:Value]) -> Value {
-        return valuesByString[name]!
+    public func evaluated(forVariableValuesByName valuesByName: [String:Value], parameters: EvaluationParameters) -> Value {
+        return valuesByName[name]!
     }
     
     public func isSame(as other: Expression) -> Bool {

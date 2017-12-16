@@ -13,7 +13,6 @@ public struct PopulationComponents {
     public var variables: [Variable] = [ScalarVariable(named: "x")]
     public var memberValueKind: Value.Kind = .scalar
     public var constantRange: ClosedRange<Double> = -10...10
-    public var vectorLength: Int = 1
     public init() {}
 }
 
